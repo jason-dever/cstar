@@ -6,6 +6,27 @@
 Let $E$ be a directed graph, and $\alpha \in E^*$ such that $|r^{-1}\{s(\alpha)\}| = \infty$.
 Let $X, Y \subseteq_{\text{fin}} E(S(E))$, and $Z$ be a finite cover of $E^{X, Y}$.
 If $\xi_\alpha \in \mathcal{U}(X, Y)$, then $\xi_\alpha \cap Z \neq \emptyset$. Proof:
-\\
+\\ \\
+First note:
+\begin{align*}
+    E^{X, Y} &= \{ e \in E(S(E))\text{: } e \leq x \ \forall x \in x \text{ and } ey = 0 \ \forall y \in Y \} \\
+             &= \{ e \in E(S(E))\text{: } e \leq \ \text{min}(X) \text{ and } ey = 0 \ \forall y \in Y \} \\
+             &= E^{\{\text{min}(X)\}, Y} \\
+\end{align*}
+Letting min$(X) = (x, x)$,
+\begin{align*}
+    E^{X, Y} = \{ (xx', xx') \text{: } x' \in E^*, \ r(x') = s(x) \text{ and } (xx', xx')y = 0 \ \forall y \in Y \} \\
+\end{align*}
+
+Consider the set $C := \{ (\alpha b, \alpha b)\text{: } b \in E^1, \ s(\alpha) = r(b) \}$. By the assumption
+that $s(\alpha)$ is an infinite receiver, $C$ is infinite. Given $y \in Y$, let $\nu$ be the path corresponding to $y$.
+Since $\xi_\alpha \in \mathcal{U}(X, Y)$, $\nu$ is not a prefix of $\alpha$, and thus not a prefix of $\alpha b$ 
+for any $b$. Thus, if $(\alpha b, \alpha b)y \neq 0$, $\alpha b$ is a prefix of $\nu$. Then for $\beta \neq b$, 
+$\alpha \beta$ cannot be a prefix of $\nu$. So there is at most one element of $C$ such that ($\alpha b, \alpha b)y \neq 0$.
+By the assumption that $Y$ is finite, all but finitely many elements of $C$ are inside $E^{\{(x, x)\}, Y}$. Therefore, if $Z$
+is a cover of $E^{X, Y}$, $Z$ is an outer cover of the infinite set $E^{X, Y} \cap C$. Because $Z$ is finite, $\exists z \in Z$ 
+with $(\alpha b, \alpha b)z \neq 0$ for infinitely many $(\alpha b, \alpha b) \in E^{X, Y} \cap C$. 
+
+
 
 \end{document}
