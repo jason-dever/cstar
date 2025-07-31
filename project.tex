@@ -20,16 +20,17 @@ Letting min$(X) = (x, x)$,
 
 Consider the set $C := \{ (\alpha b, \alpha b)\text{: } b \in E^1, \ s(\alpha) = r(b) \}$. By the assumption
 that $s(\alpha)$ is an infinite receiver, $C$ is infinite. Given $y \in Y$, let $\nu$ be the path corresponding to $y$.
-Since $\xi_\alpha \in \mathcal{U}(X, Y)$, $\nu$ is not a prefix of $\alpha$, and thus not a prefix of $\alpha b$ 
+Since $\xi_\alpha \in \mathcal{U}(X, Y)$, $\nu$ is not a prefix of $\alpha$, and thus not a proper prefix of $\alpha b$ 
 for any $b$. Thus, if $(\alpha b, \alpha b)y \neq 0$, $\alpha b$ is a prefix of $\nu$. Then for $\beta \neq b$, 
 $\alpha \beta$ cannot be a prefix of $\nu$. So there is at most one element of $C$ such that ($\alpha b, \alpha b)y \neq 0$.
 By the assumption that $Y$ is finite, all but finitely many elements of $C$ are inside $E^{\{(x, x)\}, Y}$. Therefore, if $Z$
 is a cover of $E^{X, Y}$, $Z$ is an outer cover of the infinite set $E^{X, Y} \cap C$. Because $Z$ is finite, $\exists z \in Z$ 
 with $(\alpha b, \alpha b)z \neq 0$ for infinitely many $(\alpha b, \alpha b) \in E^{X, Y} \cap C$. If $\upsilon$ is the path corresponding to $z$,
-then $\forall b$, either $\upsilon$ is a prefix of $\alpha b$, or $\alpha b$ is a prefix of $\upsilon$.
+then for every $b$, either $\upsilon$ is a prefix of $\alpha b$, or $\alpha b$ is a prefix of $\upsilon$.
 All the $\alpha b$ are the same length with a different starting edge, so if one is a prefix of $\upsilon$,
 no other can be a prefix of $\upsilon$. So $\upsilon$ is a prefix of $\alpha b$ for infinitely many $b$. Thus $|\upsilon| \leq |\alpha| + 1$.
-If $|\upsilon| = |\alpha| + 1$, we have a contradiction: $b = \beta \ \forall (\alpha b, \alpha b), (\alpha \beta, \alpha, \beta) \in E^{X, Y}$.
-Thus $|\upsilon| \leq |\alpha|$, so $\upsilon$ is a prefix of $\alpha$. Thus $z = (\upsilon, \upsilon) \in \xi_\alpha$, so $\xi_\alpha \cap Z \neq \emptyset$.
+If $|\upsilon| = |\alpha| + 1$, we have a contradiction: $b = \beta$ for all $(\alpha b, \alpha b), (\alpha \beta, \alpha, \beta) \in C$.
+Thus $|\upsilon| \leq |\alpha|$, so $\upsilon$ is a prefix of $\alpha$. Therefore $z = (\upsilon, \upsilon) \in \xi_\alpha$, so 
+$\xi_\alpha \cap Z \neq \emptyset$.
 
 \end{document}
