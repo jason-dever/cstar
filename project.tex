@@ -1,15 +1,23 @@
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
 \begin{document}
-Lemma: If $(\alpha, \alpha)(\beta, \beta) \neq 0$ and $|\alpha| = |\beta|$, then $\alpha = \beta$. Proof:
-WOLOG suppose $\alpha$ is a prefix of $\beta$. Then $\alpha = \beta \beta'$ for some $\beta$. But
+
+\begin{lemma} If $(\alpha, \alpha)(\beta, \beta) \neq 0$ and $|\alpha| = |\beta|$, then $\alpha = \beta$. \end{lemma}
+\begin{proof}
+Without loss of generality, suppose $\alpha$ is a prefix of $\beta$. Then $\alpha = \beta \beta'$ for some $\beta$. But
 $|\alpha| = |\beta|$, so $|\beta'| = 0$, meaning $\beta' = s(\beta)$. Thus $\alpha = \beta s(\beta) = \beta$.
-An immediate consequence of this is that a proper filter contains at most one path of any given length.
-\\ \\
-Theorem: $\hat{E_0} = \{\xi_\alpha\text{: } \alpha \in E^*\} \cup \{\eta_x\text{: } x \in E^\infty\}$. Proof:
-\\ \\
+\end{proof}
+An immediate consequence of this is that for any given length, a filter contains at most one element corresponding
+to a path of that length. Furthermore, if $\zeta$ is a filter, and $(\alpha, \alpha) \in \zeta$ such that $|\alpha| = n$,
+we can restrict $\alpha$ to any length $0 \leq m < n$ to produce a unique element of length $m$ inside $\zeta$.
+
+\begin{theorem} $\hat{E_0} = \{\xi_\alpha$: $\alpha \in E^*\} \cup \{\eta_x$: $x \in E^\infty\}$ \end{theorem}
+\begin{proof}
 First we show that $\xi_\alpha$ and $\eta_x$ are filters. Let $\alpha$ be a finite path and let $x$ be an infinite path.
 Consider $(\beta, \beta), \ (\gamma, \gamma) \in \xi_\alpha$ with $|\beta| = m$, $|\gamma| = n$. 
 Reading edges left to right, $\beta$ contains the first $m$ edges of $\alpha$ and $\gamma$ 
@@ -21,19 +29,31 @@ on $E(S(E))$. Next, let $(\beta, \beta) \in \xi_\alpha$, and let $(\delta, \delt
 $(\beta, \beta) \leq (\delta, \delta)$. Then $\beta = \delta \delta'$ for some $\delta' \in E^*$. 
 Thus $\alpha = \beta \beta' = \delta \delta' \beta'$. Therefore $\delta$ is a prefix of $\alpha$, so 
 $(\delta, \delta) \in \xi_\alpha$. Like before, a very similar argument works for $\eta_x$. So both 
-$\xi_\alpha$ and $\eta_x$ are filters. Going the other way, take a proper filter $\zeta \in \hat{E_0}$.
+$\xi_\alpha$ and $\eta_x$ are filters. Going the other way, take a filter $\zeta \in \hat{E_0}$.
 We do this in cases.
 \\ \\
-Case 1: $\zeta$ is finite.
+    \textit{Case $1$. $\zeta$ is finite.}
 Let $(\alpha, \alpha)$ be the minimum element inside $\zeta$. Since $\zeta$ is a filter,
 For $(\beta, \beta) \in E(S(E))$, $(\alpha, \alpha) \leq (\beta, \beta) \implies (\beta, \beta) \in \zeta$.
 However, by the definition of the minimal element, $(\beta, \beta) \in \zeta \implies (\alpha, \alpha) \leq (\beta, \beta)$.
 Thus $(\beta, \beta) \in \zeta$ if and only if $(\alpha, \alpha) \leq (\beta, \beta) \iff \beta$ is a prefix of $\alpha$. So $\zeta = \xi_\alpha$.
 \\ \\
-Let $E$ be a directed graph, and $\alpha \in E^*$ such that $|r^{-1}\{s(\alpha)\}| = \infty$.
-Let $X, Y \subseteq_{\text{fin}} E(S(E))$, and $Z$ be a finite cover of $E^{X, Y}$.
-If $\xi_\alpha \in \mathcal{U}(X, Y)$, then $\xi_\alpha \cap Z \neq \emptyset$. Proof:
+    \textit{Case $2$. $\zeta$ is infinite.}
+By the lemma above, we can get an idea of what elements of $\zeta$ look like.
+For each nonnegative integer, $\zeta$ contains precisely one element corresponding
+to a path of that length. Because we require nonzero product between elements, every
+path in the filter is a prefix of every longer path also contained inside the filter.
+All of this given, we can find an $x \in E^\infty$ such that every path inside $\zeta$
+is a prefix of $x$. By the uniqueness of filter elements, it follows that $\zeta = \xi_\alpha$.
 \\ \\
+We have shown that a nonempty subset $\zeta \subset E(S(E))$ is a filter if and only if
+it is of the form $\xi_\alpha$ or $\eta_x$. Thus $\hat{E_0} = \{\xi_\alpha$: $\alpha \in E^*\} \cup \{\eta_x$: $x \in E^\infty\}$.
+\end{proof}
+
+\begin{theorem} Let $E$ be a directed graph, and $\alpha \in E^*$ such that $|r^{-1}\{s(\alpha)\}| = \infty$.
+Let $X, Y \subseteq_{\text{fin}} E(S(E))$, and $Z$ be a finite cover of $E^{X, Y}$.
+If $\xi_\alpha \in \mathcal{U}(X, Y)$, then $\xi_\alpha \cap Z \neq \emptyset$. \end{theorem}
+\begin{proof}
 First note:
 \begin{align*}
     E^{X, Y} &= \{ e \in E(S(E))\text{: } e \leq x \ \forall x \in x \text{ and } ey = 0 \ \forall y \in Y \} \\
@@ -59,5 +79,6 @@ no other can be a prefix of $\upsilon$. So $\upsilon$ is a prefix of $\alpha b$ 
 If $|\upsilon| = |\alpha| + 1$, we have a contradiction: $b = \beta$ for all $(\alpha b, \alpha b), (\alpha \beta, \alpha, \beta) \in C$.
 Thus $|\upsilon| \leq |\alpha|$, so $\upsilon$ is a prefix of $\alpha$. Therefore $z = (\upsilon, \upsilon) \in \xi_\alpha$, so 
 $\xi_\alpha \cap Z \neq \emptyset$.
+\end{proof}
 
 \end{document}
