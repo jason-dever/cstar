@@ -17,7 +17,11 @@ contains the first $n$ edges of $\alpha$. Without loss of generality, assume $m 
 We can extend $\beta$ by the next $n - m$ edges of $\alpha$ to produce $\gamma$. Thus
 $\beta$ is a prefix of $\gamma$, so $(\beta, \beta)(\gamma, \gamma) = (\gamma, \gamma) \in \xi_\alpha$.
 A similar argument shows that $\eta_x$ is closed under multiplication. So both $\xi_\alpha$ and $\eta_x$ are prefilters
-on $E(S(E))$.
+on $E(S(E))$. Next, let $(\beta, \beta) \in \xi_\alpha$, and let $(\delta, \delta) \in E(S(E))$ so that 
+$(\beta, \beta) \leq (\delta, \delta)$. Then $\beta = \delta \delta'$ for some $\delta' \in E^*$. 
+Thus $\alpha = \beta \beta' = \delta \delta' \beta'$. $\delta$ is a prefix of $\alpha$, so 
+$(\delta, \delta) \in \xi_\alpha$. Like before, a very similar argument works for $\eta_x$. Thus both 
+$\xi_\alpha$ and $\eta_x$ are filters.
 \\ \\
 Let $E$ be a directed graph, and $\alpha \in E^*$ such that $|r^{-1}\{s(\alpha)\}| = \infty$.
 Let $X, Y \subseteq_{\text{fin}} E(S(E))$, and $Z$ be a finite cover of $E^{X, Y}$.
