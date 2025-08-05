@@ -8,4 +8,4 @@ Complete necessary MATH 2000 content - May 29 2025 \
 June/July spent reading various papers to gain background knowledge \
 Start writing project - July 28
 
-FINISH - August 15 2025
+FINISH - ?
