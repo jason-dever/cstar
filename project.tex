@@ -3,6 +3,12 @@
 \usepackage{amssymb}
 
 \begin{document}
+Lemma: If $(\alpha, \alpha)(\beta, \beta) \neq 0$ and $|\alpha| = |\beta|$, then $\alpha = \beta$. Proof:
+\\
+WOLOG suppose $\alpha$ is a prefix of $\beta$. Then $\alpha = \beta \beta'$ for some $\beta$. But
+$|\alpha| = |\beta|$, so $|\beta'| = 0$, meaning $\beta' = s(\beta)$. Thus $\alpha = \beta s(\beta) = \beta$.
+An immediate consequence of this is that a proper filter contains at most one path of any given length.
+\\ \\
 Let $E$ be a directed graph, and $\alpha \in E^*$ such that $|r^{-1}\{s(\alpha)\}| = \infty$.
 Let $X, Y \subseteq_{\text{fin}} E(S(E))$, and $Z$ be a finite cover of $E^{X, Y}$.
 If $\xi_\alpha \in \mathcal{U}(X, Y)$, then $\xi_\alpha \cap Z \neq \emptyset$. Proof:
