@@ -19,9 +19,16 @@ $\beta$ is a prefix of $\gamma$, so $(\beta, \beta)(\gamma, \gamma) = (\gamma, \
 A similar argument shows that $\eta_x$ is closed under multiplication. So both $\xi_\alpha$ and $\eta_x$ are prefilters
 on $E(S(E))$. Next, let $(\beta, \beta) \in \xi_\alpha$, and let $(\delta, \delta) \in E(S(E))$ so that 
 $(\beta, \beta) \leq (\delta, \delta)$. Then $\beta = \delta \delta'$ for some $\delta' \in E^*$. 
-Thus $\alpha = \beta \beta' = \delta \delta' \beta'$. $\delta$ is a prefix of $\alpha$, so 
-$(\delta, \delta) \in \xi_\alpha$. Like before, a very similar argument works for $\eta_x$. Thus both 
-$\xi_\alpha$ and $\eta_x$ are filters.
+Thus $\alpha = \beta \beta' = \delta \delta' \beta'$. Therefore $\delta$ is a prefix of $\alpha$, so 
+$(\delta, \delta) \in \xi_\alpha$. Like before, a very similar argument works for $\eta_x$. So both 
+$\xi_\alpha$ and $\eta_x$ are filters. Going the other way, take a proper filter $\zeta \in \hat{E_0}$.
+We do this in cases.
+\\ \\
+Case 1: $\zeta$ is finite.
+Let $(\alpha, \alpha)$ be the minimum element inside $\zeta$. Since $\zeta$ is a filter,
+For $(\beta, \beta) \in E(S(E))$, $(\alpha, \alpha) \leq (\beta, \beta) \implies (\beta, \beta) \in \zeta$.
+However, by the definition of the minimal element, $(\beta, \beta) \in \zeta \implies (\alpha, \alpha) \leq (\beta, \beta)$.
+Thus $(\beta, \beta) \in \zeta$ if and only if $(\alpha, \alpha) \leq (\beta, \beta) \iff \beta$ is a prefix of $\alpha$. So $\zeta = \xi_\alpha$.
 \\ \\
 Let $E$ be a directed graph, and $\alpha \in E^*$ such that $|r^{-1}\{s(\alpha)\}| = \infty$.
 Let $X, Y \subseteq_{\text{fin}} E(S(E))$, and $Z$ be a finite cover of $E^{X, Y}$.
