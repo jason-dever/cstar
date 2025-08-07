@@ -63,7 +63,12 @@ Now that we know what filters look like on the graph inverse semigroup, the task
     $|\beta| > |\alpha|$ and $(\alpha, \alpha)(\beta, \beta) \neq 0$. Thus $\beta = \alpha \alpha'$ for some $\alpha' \in E^*$. But no edges go to $s(\alpha)$, so we cannot
     construct $\alpha'$ with $r(\alpha') = s(\alpha)$. This is a contradiction, so $\xi_\alpha$ is an ultrafilter.
     \\ \\
-
+    \textit{Case $3$. $\eta_x$, $x \in E^\infty$.} Suppose there exists $\zeta \in \hat{E}_0$ such that $\eta_x \subset \zeta$. Then we can find
+    $(\beta, \beta) \in \zeta$ such that $(\beta, \beta) \notin \eta_x$. But $\eta_x$, as we showed before, contains an element $z$ corresponding to
+    a path of length $|\beta|$. As a superset of $\eta_x$, $\zeta$ also contains $z$. By the lemma at the start, it follows that $(\beta, \beta) = z \in \eta_x$,
+    which is a contradiction. So $\eta_x$ is an ultrafilter for all $x \in E^\infty$.
+    \\ \\
+    We have identified which filters are ultrafilters, showing that $\hat{E}_\infty = \{\xi_\alpha$: $\alpha \in E^*$ and $|r^{-1}\{s(\alpha)\}| = 0\} \cup \{\eta_x$: $x \in E^\infty\}$.
 \end{proof}
 
 \begin{theorem} Let $E$ be a directed graph, and $\alpha \in E^*$ such that $|r^{-1}\{s(\alpha)\}| = \infty$.
