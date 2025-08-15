@@ -3,9 +3,52 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 
-\newtheorem*{theorem}{Theorem}
-\newtheorem*{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
 \begin{document}
+
+\section{Introduction}
+\section{Preliminaries}
+First we must clarify a few frequently used definitions and results.
+
+\begin{definition}
+    We call a set $S$ a \textit{semigroup} if it has an associative binary operation
+    that sends a pair of elements $(a, b) \mapsto ab$ for all $a, b \in S$.
+\end{definition}
+
+\begin{definition}
+    We call a semigroup $S$ an \textit{inverse semigroup} if for every $s \in S$, there exists a unique
+    element $s^* \in S$ such that $s = ss^*s$ and $s^* = s^*ss^*$. We call $s^*$ the \textit{inverse} of $s$.
+\end{definition}
+
+\begin{definition}
+    An element $e$ of an inverse semigroup $S$ is called an \textit{idempotent} if
+    $e = e^2$. Note that for all idempotents, $e = e^*$, and for all elements $s$ in
+    an inverse semigroup, $ss^*$ and $s^*s$ are idempotent. We denote the set of idempotents
+    on $S$ by $E(S)$.
+\end{definition}
+
+\begin{remark}
+    If $S$ is an inverse semigroup, for $e$, $f \in E(S)$, $ef = fe$.
+\end{remark}
+In other words, the idempotents of an inverse semigroup commute. A proof of this can be found in Kyle's paper. cite this properly
+
+\begin{definition}
+    Let $S$ be a set. A relation $\leq$ on $S$ is called a \textit{partial order} if,
+    \begin{itemize}
+        \item It is reflexive; $a \leq a \quad \forall a \in S$.
+        \item It is antisymmetric; $a \leq b$ and $b \leq a \implies a = b \quad \forall a, b \in S$.
+        \item It is transitive; $a \leq b$ and $b \leq c \implies a \leq c \quad \forall a, b, c \in S$.
+    \end{itemize}
+    A set $S$ paired with a \textit{partial order} is called a partially ordered set, or a \textit{poset}.
+\end{definition}
+
+\section{Filters}
+\section{Directed Graphs}
+\section{References}
 
 \begin{lemma} If $(\alpha, \alpha)(\beta, \beta) \neq 0$ and $|\alpha| = |\beta|$, then $\alpha = \beta$. \end{lemma}
 \begin{proof}
