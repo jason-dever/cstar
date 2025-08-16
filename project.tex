@@ -113,9 +113,9 @@ We can now begin to shift our focus towards the tight spectrum, which is the mai
 \end{definition}
 
 \begin{definition}
-    Given $\mathcal{E} \subseteq E(S)$, we call $Z \subseteq E(S)$ an \textit{outer cover} for $\mathcal{E}$ if
-    $\forall e \in \mathcal{E}$, $\exists z \in Z$ with $ez \neq 0$. If is $Z$ an outer cover for $\mathcal{E}$ 
-    and $Z \subseteq \mathcal{E}$, we say $Z$ is a \textit{cover} for $\mathcal{E}$.
+    Given $\mathcal{E} \subseteq E(S)$, we call $Z \subseteq E(S)$ an \textit{outer cover} of $\mathcal{E}$ if
+    $\forall e \in \mathcal{E}$, $\exists z \in Z$ with $ez \neq 0$. If is $Z$ an outer cover of $\mathcal{E}$ 
+    and $Z \subseteq \mathcal{E}$, we say $Z$ is a \textit{cover} of $\mathcal{E}$.
 \end{definition}
 
 \begin{lemma} Let $X$, $Y$ be finite subsets of $E(S)$, and let $x =$ min$(X)$. Then
@@ -140,6 +140,17 @@ We can now begin to shift our focus towards the tight spectrum, which is the mai
 \end{proof}
 When we are working with $\mathcal{U}(X, Y)$ and $E^{X, Y}$, this lemma allows us the freedom of only considering the case
 where $X$ is a singleton set.
+
+\begin{definition} 
+    Let $\xi \in \hat{E}_0$. We say that $\xi$ is a \textit{tight filter} if for all finite subsets $X$, $Y \subseteq E(S)$
+    and for all finite covers $Z$ of $E^{X, Y}$, $\xi \in \mathcal{U}(X, Y) \implies Z \cap \xi \neq \emptyset$. We call
+    the set of tight filters the \textit{tight spectrum}, and denote it by $\hat{E}_{\text{tight}}^S$.
+\end{definition}
+This definition may appear a bit contrived, but the next theorem hopes to hint at its significance.
+
+\begin{theorem} $\hat{E}_{\text{tight}}$ is the closure of $\hat{E}_\infty$ in $\hat{E}_0$. \end{theorem}
+\begin{proof}
+\end{proof}
 
 \section{Directed Graphs}
 
