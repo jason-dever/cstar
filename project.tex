@@ -53,7 +53,7 @@ In other words, the idempotents of an inverse semigroup commute. (A proof of thi
 %     where $a \land b$ is called the \textit{meet} of $a$ and $b$.
 % \end{definition}
 
-\section{Filters}
+\section{The Tight Spectrum of an Inverse Semigroup}
 Now that we have a basic set of definitions in place, we can start to explore
 the set of idempotents on inverse semigroups. For this section, let $S$ be an
 inverse semigroup with zero. We can define a partial order on $E(S)$, saying that $e \leq f \iff e = ef$.
@@ -73,8 +73,8 @@ An important remark is that the zero element of $S$ is not contained
 inside any filters. If $0 \in \xi$, condition (2) would imply that $\xi = S$,
 which violates our definition. We can consider $\hat{E}_0^S$ a subset of $\{0, 1\}^{E(S)}$,
 and thus endow it with the product topology inherited from $\{0, 1\}^{E(S)}$. Equivalently,
-let $\mathcal{U}(X, Y) = \{\xi \in \hat{E}_0\text{: } X \subseteq \xi \text{ and } Y \cap \xi = \emptyset\}$.
-Sets of this form form a basis for the topology on the set of filters. With this topology, the topological
+let $X$, $Y$ be finite subsets of $E(S)$. Define $\mathcal{U}(X, Y) := \{\xi \in \hat{E}_0\text{: } X \subseteq \xi \text{ and } Y \cap \xi = \emptyset\}$.
+Sets of the form $\mathcal{U}(X, Y)$ form a basis for the topology on the set of filters. With this topology, the topological
 space $\hat{E}_0^S$ is called the \textit{Exel spectrum} of $S$.
 
 \begin{definition}
@@ -82,7 +82,8 @@ space $\hat{E}_0^S$ is called the \textit{Exel spectrum} of $S$.
     maximal with respect to set inclusion. In other words, it is not contained
     inside another filter.
 \end{definition}
-We define the subspace $\hat{E}_\infty^S := \{\xi \in \hat{E}_0^S\text{: $\xi$ is an ultrafilter}\}$.
+We define the subspace $\hat{E}_\infty^S := \{\xi \in \hat{E}_0^S\text{: $\xi$ is an ultrafilter}\}$. Note that if
+the inverse semigroup is obvious, we need not superscript $S$ when describing the spectrum.
 
 \begin{remark} For an ultrafilter $\eta \in \hat{E}_\infty$ and $e \in E(S)$, $e \notin \eta \implies ef = 0$ for some $f \in \eta$. \end{remark}
 
@@ -102,6 +103,43 @@ We define the subspace $\hat{E}_\infty^S := \{\xi \in \hat{E}_0^S\text{: $\xi$ i
     with respect to set inclusion. This is our definition of an ultrafilter; we have shown that $\forall \xi \in \hat{E}_0$, $\exists \eta \in \hat{E}_\infty$ with
     $\xi \subseteq \eta$.
 \end{proof}
+
+We can now begin to shift our focus towards the tight spectrum, which is the main topic of this section.
+
+\begin{definition} Let $X$, $Y$ be finite subsets of $E(S)$. We define
+    \begin{align*} 
+        E^{X, Y} &:= \{ e \in E(S) \text{: } e \leq x \ \forall x \in x \text{ and } ey = 0 \ \forall y \in Y \}
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    Given $\mathcal{E} \subseteq E(S)$, we call $Z \subseteq E(S)$ an \textit{outer cover} for $\mathcal{E}$ if
+    $\forall e \in \mathcal{E}$, $\exists z \in Z$ with $ez \neq 0$. If is $Z$ an outer cover for $\mathcal{E}$ 
+    and $Z \subseteq \mathcal{E}$, we say $Z$ is a \textit{cover} for $\mathcal{E}$.
+\end{definition}
+
+\begin{lemma} Let $X$, $Y$ be finite subsets of $E(S)$, and let $x =$ min$(X)$. Then
+    \begin{enumerate}
+        \item[(i)] $E^{X, Y} = E^{\{x\}, Y}$
+        \item[(ii)] $\mathcal{U}(X, Y) = \mathcal{U}(\{x\}, Y)$
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    \begin{enumerate}
+        \item[(i)] 
+            \begin{align*}
+                E^{X, Y} &= \{ e \in E(S)\text{: } e \leq x \ \forall x \in x \text{ and } ey = 0 \ \forall y \in Y \} \\
+                         &= \{ e \in E(S)\text{: } e \leq \text{min}(X) \text{ and } ey = 0 \ \forall y \in Y \} \\
+                         &= E^{\{x\}, Y}
+            \end{align*}
+        \item[(ii)]
+            Since $\{x\} \subseteq X$, $\mathcal{U}(X, Y) \subseteq \mathcal{U}(\{x\}, Y)$. Now suppose $\xi \in \mathcal{U}(\{x\}, Y)$.
+            For $\chi \in X$, $x \leq \chi \implies \chi \in \xi$. Thus $X \subseteq \xi$, so $\xi \in \mathcal{U}(X, Y)$. We have
+            shown that $\mathcal{U}(X, Y)$ and $\mathcal{U}(\{x\}, Y)$ are subsets of eachother, so they are equal.
+    \end{enumerate}
+\end{proof}
+When we are working with $\mathcal{U}(X, Y)$ and $E^{X, Y}$, this lemma allows us the freedom of only considering the case
+where $X$ is a singleton set.
 
 \section{Directed Graphs}
 
@@ -173,12 +211,6 @@ Now that we know what filters look like on the graph inverse semigroup, the task
     Let $X, Y \subseteq_{\text{fin}} E(S(E))$, and $Z$ be a finite cover of $E^{X, Y}$.
 If $\xi_\alpha \in \mathcal{U}(X, Y)$, then $\xi_\alpha \cap Z \neq \emptyset$. \end{theorem}
 \begin{proof}
-    First note:
-    \begin{align*}
-        E^{X, Y} &= \{ e \in E(S(E))\text{: } e \leq x \ \forall x \in x \text{ and } ey = 0 \ \forall y \in Y \} \\
-                 &= \{ e \in E(S(E))\text{: } e \leq \text{min}(X) \text{ and } ey = 0 \ \forall y \in Y \} \\
-                 &= E^{\{\text{min}(X)\}, Y}
-    \end{align*}
     Letting min$(X) = (x, x)$,
     \begin{align*}
         E^{X, Y} = \{ (xx', xx') \text{: } x' \in E^*, \ r(x') = s(x) \text{ and } (xx', xx')y = 0 \ \forall y \in Y \}
