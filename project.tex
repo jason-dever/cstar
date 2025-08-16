@@ -22,6 +22,7 @@ First we must clarify a few frequently used definitions and results.
 \begin{definition}
     We call a semigroup $S$ an \textit{inverse semigroup} if for every $s \in S$, there exists a unique
     element $s^* \in S$ such that $s = ss^*s$ and $s^* = s^*ss^*$. We call $s^*$ the \textit{inverse} of $s$.
+    If $S$ contains a zero element, we call it an \textit{inverse semigroup with zero}.
 \end{definition}
 
 \begin{definition}
@@ -34,21 +35,75 @@ First we must clarify a few frequently used definitions and results.
 \begin{remark}
     If $S$ is an inverse semigroup, for $e$, $f \in E(S)$, $ef = fe$.
 \end{remark}
-In other words, the idempotents of an inverse semigroup commute. A proof of this can be found in Kyle's paper. cite this properly
+In other words, the idempotents of an inverse semigroup commute. (A proof of this can be found in Kyle's paper. cite this properly)
 
 \begin{definition}
-    Let $S$ be a set. A relation $\leq$ on $S$ is called a \textit{partial order} if,
+    Let $S$ be a set. A relation $\leq$ on $S$ is called a \textit{partial order} if
     \begin{itemize}
-        \item It is reflexive; $a \leq a \quad \forall a \in S$.
-        \item It is antisymmetric; $a \leq b$ and $b \leq a \implies a = b \quad \forall a, b \in S$.
-        \item It is transitive; $a \leq b$ and $b \leq c \implies a \leq c \quad \forall a, b, c \in S$.
+        \item It is reflexive; $a \leq a \quad \forall a \in S$
+        \item It is antisymmetric; $a \leq b$ and $b \leq a \implies a = b \quad \forall a, b \in S$
+        \item It is transitive; $a \leq b$ and $b \leq c \implies a \leq c \quad \forall a, b, c \in S$
     \end{itemize}
     A set $S$ paired with a \textit{partial order} is called a partially ordered set, or a \textit{poset}.
 \end{definition}
 
+% \begin{definition}
+%     Let $S$ be a poset. If for every pair $(a, b) \in S \times S$, we can 
+%     define a \textit{greatest lower bound} $a \land b$, we call $S$ a \textit{meet semilattice},
+%     where $a \land b$ is called the \textit{meet} of $a$ and $b$.
+% \end{definition}
+
 \section{Filters}
+Now that we have a basic set of definitions in place, we can start to explore
+the set of idempotents on inverse semigroups. For this section, let $S$ be an
+inverse semigroup with zero. We can define a partial order on $E(S)$, saying that $e \leq f \iff e = ef$.
+This can be extended to the entire set $S$, but in this paper we are only concerned with idempotents.
+(mention it's a meet semilattice, point to ISG primer?)
+
+\begin{definition}
+    A nonempty proper subset $\xi \subset E(S)$ is called a \textit{filter} on $S$ if
+    \begin{enumerate}
+        \item For $e, f \in \xi$, $ef \in \xi$
+        \item For $x \in \xi$, $e \in E(S)$, $x \leq e \implies e \in \xi$
+    \end{enumerate}
+\end{definition}
+Subsets that only satisfy the first condition are called \textit{prefilters}.
+We denote the set of filters on $S$ by $\hat{E}_0^S$. 
+An important remark is that the zero element of $S$ is not contained 
+inside any filters. If $0 \in \xi$, condition (2) would imply that $\xi = S$,
+which violates our definition. We can consider $\hat{E}_0^S$ a subset of $\{0, 1\}^{E(S)}$,
+and thus endow it with the product topology inherited from $\{0, 1\}^{E(S)}$. Equivalently,
+let $\mathcal{U}(X, Y) = \{\xi \in \hat{E}_0\text{: } X \subseteq \xi \text{ and } Y \cap \xi = \emptyset\}$.
+Sets of this form form a basis for the topology on the set of filters. With this topology, the topological
+space $\hat{E}_0^S$ is called the \textit{Exel spectrum} of $S$.
+
+\begin{definition}
+    A filter $\eta \in \hat{E}_0$ is called an \textit{ultrafilter} if it is 
+    maximal with respect to set inclusion. In other words, it is not contained
+    inside another filter.
+\end{definition}
+We define the subspace $\hat{E}_\infty^S := \{\xi \in \hat{E}_0^S\text{: $\xi$ is an ultrafilter}\}$.
+
+\begin{remark} For an ultrafilter $\eta \in \hat{E}_\infty$ and $e \in E(S)$, $e \notin \eta \implies ef = 0$ for some $f \in \eta$. \end{remark}
+
+\begin{theorem} Every filter is contained inside an ultrafilter. \end{theorem}
+\begin{proof}
+    Let $\xi \in \hat{E}_0$. To prove this, we hope to use Zorn's lemma. We define the set 
+    $\mathcal{P} := \{\mathcal{F} \in \hat{E_0} \text{: } \xi \subseteq \mathcal{F}\}$ and 
+    we order $\mathcal{P}$ by set inclusion. Let $\mathcal{C} \subseteq \mathcal{P}$ be a chain. 
+    If we take $\mathcal{F} := \bigcup_{\zeta \in \mathcal{C}} \zeta$, it is clear that $\mathcal{F}$ is 
+    an upper bound of $\mathcal{C}$ and $\xi \subseteq \mathcal{F}$. To show that $\mathcal{F} \in \mathcal{P}$, we
+    need only show that it is a filter. Suppose $f$, $g \in \mathcal{F}$. Then $f \in \zeta_1$, $g \in \zeta_2$ for
+    some $\zeta_1$, $\zeta_2 \in \mathcal{C}$. Since $\mathcal{C}$ is totally ordered, without loss of generality we
+    assume $\zeta_1 \subseteq \zeta_2$. Then $f$, $g \in \zeta_2 \implies fg \in \zeta_2 \subseteq \mathcal{F}$.
+    So $\mathcal{F}$ is a prefilter. Now suppose $f \in \mathcal{F}$, $e \in E(S)$ with $f \leq e$. Then $f \in \zeta$ for
+    some $\zeta \in \mathcal{C}$, but since $\zeta$ is a filter, $e \in \zeta \subseteq \mathcal{F}$. So $\mathcal{F}$ is
+    upward closed, and hence a filter. By Zorn's lemma, there exists $\eta \in \mathcal{P}$ such that $\eta$ is maximal
+    with respect to set inclusion. This is our definition of an ultrafilter; we have shown that $\forall \xi \in \hat{E}_0$, $\exists \eta \in \hat{E}_\infty$ with
+    $\xi \subseteq \eta$.
+\end{proof}
+
 \section{Directed Graphs}
-\section{References}
 
 \begin{lemma} If $(\alpha, \alpha)(\beta, \beta) \neq 0$ and $|\alpha| = |\beta|$, then $\alpha = \beta$. \end{lemma}
 \begin{proof}
@@ -144,5 +199,7 @@ If $\xi_\alpha \in \mathcal{U}(X, Y)$, then $\xi_\alpha \cap Z \neq \emptyset$. 
     Thus $|\upsilon| \leq |\alpha|$, so $\upsilon$ is a prefix of $\alpha$. Therefore $z = (\upsilon, \upsilon) \in \xi_\alpha$, so 
     $\xi_\alpha \cap Z \neq \emptyset$.
 \end{proof}
+
+\section{References}
 
 \end{document}
