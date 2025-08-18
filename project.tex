@@ -15,18 +15,18 @@
 First we must clarify a few frequently used definitions and results.
 
 \begin{definition}
-    We call a set $S$ a \textit{semigroup} if it has an associative binary operation
+    We call a set $S$ a \emph{semigroup} if it has an associative binary operation
     that sends a pair of elements $(a, b) \mapsto ab$ for all $a, b \in S$.
 \end{definition}
 
 \begin{definition}
-    We call a semigroup $S$ an \textit{inverse semigroup} if for every $s \in S$, there exists a unique
-    element $s^* \in S$ such that $s = ss^*s$ and $s^* = s^*ss^*$. We call $s^*$ the \textit{inverse} of $s$.
-    If $S$ contains a zero element, we call it an \textit{inverse semigroup with zero}.
+    We call a semigroup $S$ an \emph{inverse semigroup} if for every $s \in S$, there exists a unique
+    element $s^* \in S$ such that $s = ss^*s$ and $s^* = s^*ss^*$. We call $s^*$ the \emph{inverse} of $s$.
+    If $S$ contains a zero element, we call it an \emph{inverse semigroup with zero}.
 \end{definition}
 
 \begin{definition}
-    An element $e$ of an inverse semigroup $S$ is called an \textit{idempotent} if
+    An element $e$ of an inverse semigroup $S$ is called an \emph{idempotent} if
     $e = e^2$. Note that for all idempotents, $e = e^*$, and for all elements $s$ in
     an inverse semigroup, $ss^*$ and $s^*s$ are idempotent. We denote the set of idempotents
     on $S$ by $E(S)$.
@@ -38,19 +38,19 @@ First we must clarify a few frequently used definitions and results.
 In other words, the idempotents of an inverse semigroup commute. (A proof of this can be found in Kyle's paper. cite this properly)
 
 \begin{definition}
-    Let $S$ be a set. A relation $\leq$ on $S$ is called a \textit{partial order} if
+    Let $S$ be a set. A relation $\leq$ on $S$ is called a \emph{partial order} if
     \begin{itemize}
         \item It is reflexive; $a \leq a \quad \forall a \in S$
         \item It is antisymmetric; $a \leq b$ and $b \leq a \implies a = b \quad \forall a, b \in S$
         \item It is transitive; $a \leq b$ and $b \leq c \implies a \leq c \quad \forall a, b, c \in S$
     \end{itemize}
-    A set $S$ paired with a \textit{partial order} is called a partially ordered set, or a \textit{poset}.
+    A set $S$ paired with a \emph{partial order} is called a partially ordered set, or a \emph{poset}.
 \end{definition}
 
 % \begin{definition}
 %     Let $S$ be a poset. If for every pair $(a, b) \in S \times S$, we can 
-%     define a \textit{greatest lower bound} $a \land b$, we call $S$ a \textit{meet semilattice},
-%     where $a \land b$ is called the \textit{meet} of $a$ and $b$.
+%     define a \emph{greatest lower bound} $a \land b$, we call $S$ a \emph{meet semilattice},
+%     where $a \land b$ is called the \emph{meet} of $a$ and $b$.
 % \end{definition}
 
 \section{The Tight Spectrum of an Inverse Semigroup}
@@ -61,13 +61,13 @@ This can be extended to the entire set $S$, but in this paper we are only concer
 (mention it's a meet semilattice, point to ISG primer?)
 
 \begin{definition}
-    A nonempty proper subset $\xi \subset E(S)$ is called a \textit{filter} on $S$ if
+    A nonempty proper subset $\xi \subset E(S)$ is called a \emph{filter} on $S$ if
     \begin{enumerate}
         \item For $e, f \in \xi$, $ef \in \xi$
         \item For $x \in \xi$, $e \in E(S)$, $x \leq e \implies e \in \xi$
     \end{enumerate}
 \end{definition}
-Subsets that only satisfy the first condition are called \textit{prefilters}.
+Subsets that only satisfy the first condition are called \emph{prefilters}.
 We denote the set of filters on $S$ by $\hat{E}_0^S$. 
 An important remark is that the zero element of $S$ is not contained 
 inside any filters. If $0 \in \xi$, condition (2) would imply that $\xi = S$,
@@ -75,10 +75,10 @@ which violates our definition. We can consider $\hat{E}_0^S$ a subset of $\{0, 1
 and thus endow it with the product topology inherited from $\{0, 1\}^{E(S)}$. Equivalently,
 let $X$, $Y$ be finite subsets of $E(S)$. Define $\mathcal{U}(X, Y) := \{\xi \in \hat{E}_0\text{: } X \subseteq \xi \text{ and } Y \cap \xi = \emptyset\}$.
 Sets of the form $\mathcal{U}(X, Y)$ form a basis for the topology on the set of filters. With this topology, the topological
-space $\hat{E}_0^S$ is called the \textit{Exel spectrum} of $S$.
+space $\hat{E}_0^S$ is called the \emph{Exel spectrum} of $S$.
 
 \begin{definition}
-    A filter $\eta \in \hat{E}_0$ is called an \textit{ultrafilter} if it is 
+    A filter $\eta \in \hat{E}_0$ is called an \emph{ultrafilter} if it is 
     maximal with respect to set inclusion. In other words, it is not contained
     inside another filter.
 \end{definition}
@@ -113,15 +113,15 @@ We can now begin to shift our focus towards the tight spectrum, which is the mai
 \end{definition}
 
 \begin{definition}
-    Given $\mathcal{E} \subseteq E(S)$, we call $Z \subseteq E(S)$ an \textit{outer cover} of $\mathcal{E}$ if
+    Given $\mathcal{E} \subseteq E(S)$, we call $Z \subseteq E(S)$ an \emph{outer cover} of $\mathcal{E}$ if
     $\forall e \neq 0 \in \mathcal{E}$, $\exists z \in Z$ with $ez \neq 0$. If is $Z$ an outer cover of $\mathcal{E}$ 
-    and $Z \subseteq \mathcal{E}$, we say $Z$ is a \textit{cover} of $\mathcal{E}$.
+    and $Z \subseteq \mathcal{E}$, we say $Z$ is a \emph{cover} of $\mathcal{E}$.
 \end{definition}
 
 \begin{definition} 
-    Let $\xi \in \hat{E}_0$. We say that $\xi$ is a \textit{tight filter} if for all finite subsets $X$, $Y \subseteq E(S)$
+    Let $\xi \in \hat{E}_0$. We say that $\xi$ is a \emph{tight filter} if for all finite subsets $X$, $Y \subseteq E(S)$
     and for all finite covers $Z$ of $E^{X, Y}$, $\xi \in \mathcal{U}(X, Y) \implies Z \cap \xi \neq \emptyset$. We call
-    the set of tight filters the \textit{tight spectrum}, and denote it by $\hat{E}_{\text{tight}}^S$.
+    the set of tight filters the \emph{tight spectrum}, and denote it by $\hat{E}_{\text{tight}}^S$.
 \end{definition}
 This definition may appear a bit contrived, but the next theorem hopes to hint at its significance.
 
@@ -171,6 +171,47 @@ where $X$ is a singleton set.
 \end{proof}
 
 \section{Directed Graphs}
+    Now that we have introduced filters and the tight spectrum, we consider an
+    example: the graph inverse semigroup. We require a few preliminary definitions.
+
+\begin{definition} 
+    A \emph{directed graph} is a 4-tuple $E = (E^0, E^1, r, s)$, where we call $E^0$
+    the set of \emph{vertices}, and $E^1$ the set of \emph{edges}. $r: E^1 \to E^0$ and $s: E^1 \to E^0$
+    are called the \emph{range} and \emph{source} maps, respectively. A vertex can be thought of as a point
+    in a plane, where an edge $e$ can be thought of as an arrow pointing from $s(e)$ to $r(e)$.
+\end{definition}
+
+For the rest of the section, we will let $E$ be a directed graph.
+
+\begin{definition}
+    If $\alpha_1$, $\alpha_2$, ..., $\alpha_n \in E^1$,
+    where for $1 \leq i \leq n-1$, $r(\alpha_{i+1}) = s(\alpha_i)$, we can concatenate
+    the edges to form a \textit{finite path} $\alpha = \alpha_1 ... \alpha_n$ in $E$. We say
+    $\alpha$ has length $n$, and denote it by $|\alpha|$.
+\end{definition}
+
+\begin{definition}
+    For $n \in \mathbb{N}^{\geq 1}$, we define
+    \begin{align*}
+        E^n := \{\alpha\text{: $\alpha$ is a path in E, $|\alpha| = n$}\}
+    \end{align*}
+\end{definition}
+
+This provides some intuition about vertices as "paths of length zero". We say two finite paths
+are equal if and only if they have the same length and consist of exactly the same edges.
+Next, we extend the range and source maps to finite paths; if $\alpha = \alpha_1 ... \alpha_n$,
+we say $r(\alpha) = r(\alpha_1)$, and $s(\alpha) = s(\alpha_n)$. We can now concatenate paths
+under the same rule mentioned in Definition 4.2.
+
+\begin{definition}
+    \begin{align*}
+        E^* := \left( \bigcup_{n=1}^\infty E^n \right) \cup E^0
+    \end{align*}
+    We call $E^*$ \emph{the set of finite paths}, and it is a semigroup under
+    concatenation.
+\end{definition}
+
+With those preliminaries developed, we now define the graph inverse semigroup.
 
 \begin{lemma} If $(\alpha, \alpha)(\beta, \beta) \neq 0$ and $|\alpha| = |\beta|$, then $\alpha = \beta$. \end{lemma}
 \begin{proof}
@@ -197,13 +238,13 @@ we can restrict $\alpha$ to any length $0 \leq m < n$ to produce a unique elemen
     $\xi_\alpha$ and $\eta_x$ are filters. Going the other way, take a filter $\zeta \in \hat{E}_0$.
     We do this in cases.
     \\ \\
-    \textit{Case $1$. $\zeta$ is finite.}
+    \emph{Case $1$. $\zeta$ is finite.}
     Let $(\alpha, \alpha)$ be the minimum element inside $\zeta$. Since $\zeta$ is a filter,
     For $(\beta, \beta) \in E(S(E))$, $(\alpha, \alpha) \leq (\beta, \beta) \implies (\beta, \beta) \in \zeta$.
     However, by the definition of the minimal element, $(\beta, \beta) \in \zeta \implies (\alpha, \alpha) \leq (\beta, \beta)$.
     Thus $(\beta, \beta) \in \zeta$ if and only if $(\alpha, \alpha) \leq (\beta, \beta) \iff \beta$ is a prefix of $\alpha$. So $\zeta = \xi_\alpha$.
     \\ \\
-    \textit{Case $2$. $\zeta$ is infinite.}
+    \emph{Case $2$. $\zeta$ is infinite.}
     By the lemma above, we can get an idea of what elements of $\zeta$ look like.
     For each nonnegative integer, $\zeta$ contains precisely one element corresponding
     to a path of that length. Because we require nonzero product between elements, every
@@ -220,15 +261,15 @@ Now that we know what filters look like on the graph inverse semigroup, the task
 \begin{proof}
     We need only consider various kinds of filters, determining whether they are ultrafilters or not. We do this in cases.
     \\ \\
-    \textit{Case $1$. $\xi_\alpha$, $|r^{-1}\{s(\alpha)\}| > 0$.} Take $e \in E^1$ such that $r(e) = s(\alpha)$. It is clear that
+    \emph{Case $1$. $\xi_\alpha$, $|r^{-1}\{s(\alpha)\}| > 0$.} Take $e \in E^1$ such that $r(e) = s(\alpha)$. It is clear that
     $\xi_\alpha \subset \xi_{\alpha e}$. So $\xi_\alpha$ is not an ultrafilter.
     \\ \\
-    \textit{Case $2$. $\xi_\alpha$, $|r^{-1}\{s(\alpha)\}| = 0$.} Suppose we can find $\zeta \in \hat{E}_0$ such that $\xi_\alpha \subset \zeta$.
+    \emph{Case $2$. $\xi_\alpha$, $|r^{-1}\{s(\alpha)\}| = 0$.} Suppose we can find $\zeta \in \hat{E}_0$ such that $\xi_\alpha \subset \zeta$.
     For $0 \leq i \leq |\alpha|$, $\zeta$ inherits its idempotent with the path corresponding to length $i$ from $\xi_\alpha$. So we can find an element $(\beta, \beta) \in \zeta$ with
     $|\beta| > |\alpha|$ and $(\alpha, \alpha)(\beta, \beta) \neq 0$. Thus $\beta = \alpha \alpha'$ for some $\alpha' \in E^*$. But no edges go to $s(\alpha)$, so we cannot
     construct $\alpha'$ with $r(\alpha') = s(\alpha)$. This is a contradiction, so $\xi_\alpha$ is an ultrafilter.
     \\ \\
-    \textit{Case $3$. $\eta_x$, $x \in E^\infty$.} Suppose there exists $\zeta \in \hat{E}_0$ such that $\eta_x \subset \zeta$. Then we can find
+    \emph{Case $3$. $\eta_x$, $x \in E^\infty$.} Suppose there exists $\zeta \in \hat{E}_0$ such that $\eta_x \subset \zeta$. Then we can find
     $(\beta, \beta) \in \zeta$ such that $(\beta, \beta) \notin \eta_x$. But $\eta_x$, as we showed before, contains an element $z$ corresponding to
     a path of length $|\beta|$. As a superset of $\eta_x$, $\zeta$ also contains $z$. By the lemma at the start, it follows that $(\beta, \beta) = z \in \eta_x$,
     which is a contradiction. So $\eta_x$ is an ultrafilter for all $x \in E^\infty$.
