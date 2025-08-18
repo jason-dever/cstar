@@ -150,6 +150,15 @@ This definition may appear a bit contrived, but the next theorem hopes to hint a
 
 \begin{theorem} $\hat{E}_{\text{tight}}$ is the closure of $\hat{E}_\infty$ in $\hat{E}_0$. \end{theorem}
 \begin{proof}
+    We show that a filter $\xi \in \overline{\hat{E}}_\infty \iff \xi \in \hat{E}_{\text{tight}}$. First
+    the forward implication. Let $\xi \in \overline{\hat{E}}_\infty$ and suppose $\xi \in \mathcal{U}(\{x\}, Y)$.
+    We prove the contrapositive of our definition for tightness. Let $Z \subseteq E^{\{x\}, Y}$, and suppose $Z \cap \xi = \emptyset$.
+    Then $\xi \in \mathcal{U}(\{x\}, Y \cup Z)$. Since $\xi \in \overline{\hat{E}}_\infty$, we can find an ultrafilter
+    $\eta \in \mathcal{U}(\{x\}, Y \cup Z)$. By Remark 3.3, for every $f \in Y \cup Z$, we can find an idempotent $e_f \in \eta$
+    with $f e_f = 0$. Define $e := \left( \prod_{f \in Y \cup Z} e_f \right) x$. $e \leq x$ and $ey = 0 \ \forall y \in Y$, so
+    $e \in E^{\{x\}, Y}$, but $ez = 0 \ \forall z \in Z$. So $Z$ is not a finite cover of $E^{\{x\}, Y}$, thus $\xi$ is a tight filter,
+    hence $\overline{\hat{E}}_\infty \subseteq \hat{E}_{\text{tight}}$.
+    
 \end{proof}
 
 \section{Directed Graphs}
