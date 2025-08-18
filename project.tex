@@ -114,7 +114,7 @@ We can now begin to shift our focus towards the tight spectrum, which is the mai
 
 \begin{definition}
     Given $\mathcal{E} \subseteq E(S)$, we call $Z \subseteq E(S)$ an \textit{outer cover} of $\mathcal{E}$ if
-    $\forall e \in \mathcal{E}$, $\exists z \in Z$ with $ez \neq 0$. If is $Z$ an outer cover of $\mathcal{E}$ 
+    $\forall e \neq 0 \in \mathcal{E}$, $\exists z \in Z$ with $ez \neq 0$. If is $Z$ an outer cover of $\mathcal{E}$ 
     and $Z \subseteq \mathcal{E}$, we say $Z$ is a \textit{cover} of $\mathcal{E}$.
 \end{definition}
 
@@ -157,8 +157,17 @@ This definition may appear a bit contrived, but the next theorem hopes to hint a
     $\eta \in \mathcal{U}(\{x\}, Y \cup Z)$. By Remark 3.3, for every $f \in Y \cup Z$, we can find an idempotent $e_f \in \eta$
     with $f e_f = 0$. Define $e := \left( \prod_{f \in Y \cup Z} e_f \right) x$. $e \leq x$ and $ey = 0 \ \forall y \in Y$, so
     $e \in E^{\{x\}, Y}$, but $ez = 0 \ \forall z \in Z$. So $Z$ is not a finite cover of $E^{\{x\}, Y}$, thus $\xi$ is a tight filter,
-    hence $\overline{\hat{E}}_\infty \subseteq \hat{E}_{\text{tight}}$.
-    
+    hence $\overline{\hat{E}}_\infty \subseteq \hat{E}_{\text{tight}}$. 
+    \\ \\
+    We now prove the other direction. Let $\xi \in \hat{E}_{\text{tight}}$ and suppose $\xi \in \mathcal{U}(\{x\}, Y)$.
+    First we show that $E^{\{x\}, Y} \neq \{0\}$, by way of contradiction. If $E^{\{x\}, Y} = \{0\}$, then $Z = \emptyset$ is a finite cover.
+    Since $\xi$ is tight, $\xi \cap Z \neq \emptyset$, which is a contradiction. So we can find a nonzero idempotent $e \in E^{\{x\}, Y}$.
+    Construct a filter $\zeta$ by including all the idempotents at least as large as $e$ and closing it under products. 
+    By Theorem 3.4, we can find an ultrafilter $\eta$ with $\eta \supseteq \zeta \ni e$. Note that since 
+    $ey = 0 \ \forall y \in Y$ and $e \leq x$, any filter containing $e$ must not intersect $Y$ and must contain $x$.
+    Thus $\eta \in \mathcal{U}(\{x\}, Y)$, and because open sets of this form are a basis for the topology on $\hat{E}_0$,
+    it follows that every open neighbourhood of $\xi$ contains an ultrafilter $\eta$. So $\hat{E}_\text{tight} \subseteq \overline{\hat{E}}_\infty$.
+    Finally, by this and the work above, $\hat{E}_\text{tight} = \overline{\hat{E}}_\infty$.
 \end{proof}
 
 \section{Directed Graphs}
