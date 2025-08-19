@@ -191,27 +191,29 @@ For the rest of the section, we will let $E$ be a directed graph.
 \end{definition}
 
 \begin{definition}
-    For $n \in \mathbb{N}^{\geq 1}$, we define
+    For $n \in \mathbb{N}$, we define
     \begin{align*}
-        E^n := \{\alpha\text{: $\alpha$ is a path in E, $|\alpha| = n$}\}
+        E^n := \{\alpha\text{: $\alpha$ is a finite path in E, $|\alpha| = n$}\}
     \end{align*}
 \end{definition}
 
-This provides some intuition about vertices as "paths of length zero". We say two finite paths
-are equal if and only if they have the same length and consist of exactly the same edges.
+This provides some intuition about our naming convention for the set of vertices; a vertex can be considered a "path of length zero". 
+We say two finite paths are equal if and only if they have the same length and consist of exactly the same edges.
 Next, we extend the range and source maps to finite paths; if $\alpha = \alpha_1 ... \alpha_n$,
 we say $r(\alpha) = r(\alpha_1)$, and $s(\alpha) = s(\alpha_n)$. We can now concatenate paths
 under the same rule mentioned in Definition 4.2.
 
 \begin{definition}
+    We define the \emph{set of finite paths}, and denote it by $E^*$. Note that the vertex set is included.
     \begin{align*}
-        E^* := \left( \bigcup_{n=1}^\infty E^n \right) \cup E^0
+        E^* := \bigcup_{n=0}^\infty E^n
     \end{align*}
-    We call $E^*$ \emph{the set of finite paths}, and it is a semigroup under
-    concatenation.
 \end{definition}
 
-With those preliminaries developed, we now define the graph inverse semigroup.
+With these preliminaries developed, we can now define the graph inverse semigroup.
+
+\begin{definition}
+\end{definition}
 
 \begin{lemma} If $(\alpha, \alpha)(\beta, \beta) \neq 0$ and $|\alpha| = |\beta|$, then $\alpha = \beta$. \end{lemma}
 \begin{proof}
