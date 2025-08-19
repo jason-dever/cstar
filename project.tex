@@ -250,11 +250,20 @@ we can restrict $\alpha$ to any length $0 \leq m < n$ to produce a unique elemen
     \end{align*}
 \end{definition}
 For $x \in E^\infty$, we say $\alpha \in E^*$ is a prefix of $x$ if $x = \alpha x'$
-for some infinite path $x'$.
+for some infinite path $x'$. Our goal is now to identify filters on $E(S(E))$, with
+the ultimate goal of providing a characterization for the tight spectrum $\hat{E}_\text{tight}$.
+
+\begin{definition}
+    Let $\alpha \in E^*$, $x \in E^\infty$. We define
+    \begin{align*}
+        \text{\textbullet \quad} \xi_\alpha &= \{(\beta, \beta) \in E(S(E))\text{: $\beta$ is a prefix of $\alpha$}\} \\
+        \text{\textbullet \quad} \eta_x &= \{(\beta, \beta) \in E(S(E))\text{: $\beta$ is a prefix of $x$}\}
+    \end{align*}
+\end{definition}
 
 \begin{theorem} $\hat{E}_0 = \{\xi_\alpha$: $\alpha \in E^*\} \cup \{\eta_x$: $x \in E^\infty\}$ \end{theorem}
 \begin{proof}
-    First we show that $\xi_\alpha$ and $\eta_x$ are filters. Let $\alpha$ be a finite path and let $x$ be an infinite path.
+    First we show that $\xi_\alpha$ and $\eta_x$ are filters. First note that they are both nonempty. Let $\alpha$ be a finite path and let $x$ be an infinite path.
     Consider $(\beta, \beta), \ (\gamma, \gamma) \in \xi_\alpha$ with $|\beta| = m$, $|\gamma| = n$. 
     Reading edges left to right, $\beta$ contains the first $m$ edges of $\alpha$ and $\gamma$ 
     contains the first $n$ edges of $\alpha$. Without loss of generality, assume $m \leq n$. 
@@ -275,7 +284,7 @@ for some infinite path $x'$.
     Thus $(\beta, \beta) \in \zeta$ if and only if $(\alpha, \alpha) \leq (\beta, \beta) \iff \beta$ is a prefix of $\alpha$. So $\zeta = \xi_\alpha$.
     \\ \\
     \emph{Case $2$. $\zeta$ is infinite.}
-    By the lemma above, we can get an idea of what elements of $\zeta$ look like.
+    Using Lemma 4.6, we can get an idea of what elements of $\zeta$ look like.
     For each nonnegative integer, $\zeta$ contains precisely one element corresponding
     to a path of that length. Because we require nonzero product between elements, every
     path in the filter is a prefix of every longer path also contained inside the filter.
@@ -301,35 +310,49 @@ Now that we know what filters look like on the graph inverse semigroup, the task
     \\ \\
     \emph{Case $3$. $\eta_x$, $x \in E^\infty$.} Suppose there exists $\zeta \in \hat{E}_0$ such that $\eta_x \subset \zeta$. Then we can find
     $(\beta, \beta) \in \zeta$ such that $(\beta, \beta) \notin \eta_x$. But $\eta_x$, as we showed before, contains an element $z$ corresponding to
-    a path of length $|\beta|$. As a superset of $\eta_x$, $\zeta$ also contains $z$. By the lemma at the start, it follows that $(\beta, \beta) = z \in \eta_x$,
+    a path of length $|\beta|$. As a superset of $\eta_x$, $\zeta$ also contains $z$. By Lemma 4.6, it follows that $(\beta, \beta) = z \in \eta_x$,
     which is a contradiction. So $\eta_x$ is an ultrafilter for all $x \in E^\infty$.
     \\ \\
     We have identified which filters are ultrafilters, showing that $\hat{E}_\infty = \{\xi_\alpha$: $\alpha \in E^*$ and $|r^{-1}\{s(\alpha)\}| = 0\} \cup \{\eta_x$: $x \in E^\infty\}$.
 \end{proof}
 
-\begin{theorem} Let $E$ be a directed graph, and $\alpha \in E^*$ such that $|r^{-1}\{s(\alpha)\}| = \infty$.
-    Let $X, Y \subseteq_{\text{fin}} E(S(E))$, and $Z$ be a finite cover of $E^{X, Y}$.
-If $\xi_\alpha \in \mathcal{U}(X, Y)$, then $\xi_\alpha \cap Z \neq \emptyset$. \end{theorem}
-\begin{proof}
-    Letting min$(X) = (x, x)$,
+\begin{theorem} 
     \begin{align*}
-        E^{X, Y} = \{ (xx', xx') \text{: } x' \in E^*, \ r(x') = s(x) \text{ and } (xx', xx')y = 0 \ \forall y \in Y \}
+    \hat{E}_\text{tight} = \{\eta_x \text{: } x \in E^\infty\} \cup \{\xi_\alpha \text{: }\alpha \in E^*, \ |r^{-1}\{s(\alpha)\}| = 0 \text{ or } |r^{-1}\{s(\alpha)\}| = \infty\} 
+    \end{align*}
+\end{theorem}
+\begin{proof}
+    From Theorem 3.9, it follows that $\hat{E}_\infty \subseteq \hat{E}_\text{tight}$. To provide
+    a complete characterization of the tight spectrum, all we have left to do is consider which
+    elements of $\hat{E}_0 \setminus \hat{E}_\infty$ are tight filters. 
+    We first let $\alpha \in E^*$ such that $|r^{-1}\{s(\alpha)\}| = \infty$. Here $s(\alpha)$ is called an \emph{infinite receiver}.
+    Let $\{(x, x)\}, Y \subseteq_{\text{fin}} E(S(E))$, and $Z$ be a finite cover of $E^{\{(x, x)\}, Y}$.
+    Suppose $\xi_\alpha \in \mathcal{U}(\{(x, x)\}, Y)$. We first note:
+    \begin{align*}
+        E^{\{(x, x)\}, Y} = \{ (xx', xx') \text{: } x' \in E^*, \ r(x') = s(x) \text{ and } (xx', xx')y = 0 \ \forall y \in Y \}
     \end{align*}
 
     Consider the set $C := \{ (\alpha b, \alpha b)\text{: } b \in E^1, \ s(\alpha) = r(b) \}$. By the assumption
     that $s(\alpha)$ is an infinite receiver, $C$ is infinite. Given $y \in Y$, let $\nu$ be the path corresponding to $y$.
-    Since $\xi_\alpha \in \mathcal{U}(X, Y)$, $\nu$ is not a prefix of $\alpha$, and thus not a proper prefix of $\alpha b$ 
+    Since $\xi_\alpha \in \mathcal{U}(\{(x, x)\}, Y)$, $\nu$ is not a prefix of $\alpha$, and thus not a proper prefix of $\alpha b$ 
     for any $b$. Thus, if $(\alpha b, \alpha b)y \neq 0$, $\alpha b$ is a prefix of $\nu$. Then for $\beta \neq b$, 
     $\alpha \beta$ cannot be a prefix of $\nu$. So there is at most one element of $C$ such that ($\alpha b, \alpha b)y \neq 0$.
     By the assumption that $Y$ is finite, all but finitely many elements of $C$ are inside $E^{\{(x, x)\}, Y}$. Therefore, if $Z$
-    is a cover of $E^{X, Y}$, $Z$ is an outer cover of the infinite set $E^{X, Y} \cap C$. Because $Z$ is finite, $\exists z \in Z$ 
-    with $(\alpha b, \alpha b)z \neq 0$ for infinitely many $(\alpha b, \alpha b) \in E^{X, Y} \cap C$. If $\upsilon$ is the path corresponding to $z$,
+    is a cover of $E^{\{(x, x)\}, Y}$, $Z$ is an outer cover of the infinite set $E^{\{(x, x)\}, Y} \cap C$. Because $Z$ is finite, $\exists z \in Z$ 
+    with $(\alpha b, \alpha b)z \neq 0$ for infinitely many $(\alpha b, \alpha b) \in E^{\{(x, x)\}, Y} \cap C$. If $\upsilon$ is the path corresponding to $z$,
     then for every $b$, either $\upsilon$ is a prefix of $\alpha b$, or $\alpha b$ is a prefix of $\upsilon$.
     All the $\alpha b$ are the same length with a different starting edge, so if one is a prefix of $\upsilon$,
     no other can be a prefix of $\upsilon$. So $\upsilon$ is a prefix of $\alpha b$ for infinitely many $b$. Thus $|\upsilon| \leq |\alpha| + 1$.
     If $|\upsilon| = |\alpha| + 1$, we have a contradiction: $b = \beta$ for all $(\alpha b, \alpha b), (\alpha \beta, \alpha, \beta) \in C$.
-    Thus $|\upsilon| \leq |\alpha|$, so $\upsilon$ is a prefix of $\alpha$. Therefore $z = (\upsilon, \upsilon) \in \xi_\alpha$, so 
-    $\xi_\alpha \cap Z \neq \emptyset$.
+    Thus $|\upsilon| \leq |\alpha|$, so $\upsilon$ is a prefix of $\alpha$. Therefore $z = (\upsilon, \upsilon) \in \xi_\alpha$, thus 
+    $\xi_\alpha \cap Z \neq \emptyset$, so $\xi_\alpha$ is tight.
+    \\ \\
+    In our final case, we let $\alpha \in E^*$, and suppose $0 < |r^{-1}\{s(\alpha)\}| < \infty$. Then
+    there exists a nonempty, finite collection of edges $e_1, ..., e_n$ with $r(e_i) = s(\alpha)$ for $1 \leq i \leq n$.
+    Let $Y \subseteq_\text{fin} E(S(E))$ such that $\xi_\alpha \in \mathcal{U}(\{(\alpha, \alpha)\}, Y)$. 
+    Then $Z = \{(\alpha e_1, \alpha e_1), ..., (\alpha e_n, \alpha e_n)\}$ is a finite cover of $E^{\{(\alpha, \alpha)\}, Y}$,
+    but $Z \cap \xi_\alpha = \emptyset$. So $\xi_\alpha$ is not tight. Thus a filter $\xi_\alpha \in \hat{E}_0 \setminus \hat{E}_\infty$
+    is tight if and only if it starts at an infinite receiver. This result combined with Theorem 3.9 completes the proof.
 \end{proof}
 
 \section{References}
