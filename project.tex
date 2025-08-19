@@ -201,7 +201,9 @@ This provides some intuition about our naming convention for the set of vertices
 We say two finite paths are equal if and only if they have the same length and consist of exactly the same edges.
 Next, we extend the range and source maps to finite paths; if $\alpha = \alpha_1 ... \alpha_n$,
 we say $r(\alpha) = r(\alpha_1)$, and $s(\alpha) = s(\alpha_n)$. We can now concatenate paths
-under the same rule mentioned in Definition 4.2.
+under the same rule mentioned in Definition 4.2. Some important terminology is the notion of a prefix;
+we say $\alpha$ is a \emph{prefix} of $\beta$ if $\beta = \alpha \alpha'$ for some $\alpha' \in E^*$. Furthermore,
+We say $\alpha$ is a \emph{proper prefix} of $\beta$ if $\alpha$ is a prefix of $\beta$ and $\alpha \neq \beta$.
 
 \begin{definition}
     We define the \emph{set of finite paths}, and denote it by $E^*$. Note that the vertex set is included.
@@ -213,16 +215,42 @@ under the same rule mentioned in Definition 4.2.
 With these preliminaries developed, we can now define the graph inverse semigroup.
 
 \begin{definition}
+    Let $S(E)$ = $\{(\alpha, \beta) \in E^* \times E^*$: $s(\alpha) = s(\beta)\} \cup \{0\}$. This is called
+    the \emph{graph inverse semigroup} corresponding to the graph $E$, and we define multiplication as follows:
+    \begin{align*}
+        (\alpha, \beta)(\gamma, \delta) &= 
+        \begin{cases}
+            (\alpha, \delta \gamma') &\text{if } \beta = \gamma \gamma' \\
+            (\alpha \beta', \delta) &\text{if } \gamma = \beta \beta' \\
+            0 &\text{otherwise} \\
+        \end{cases}
+    \end{align*}
 \end{definition}
+
+In (Kyle's paper, cited), it is shown that this is indeed an inverse semigroup,
+where $(\alpha, \beta)^* = (\beta, \alpha)$, and the set of idempotents, $E(S(E))$, 
+contains elements of the form $(\alpha, \alpha)$.
+Note that the product $(\alpha, \alpha)(\beta, \beta)$ is nonzero exactly when $\alpha$ is a prefix of $\beta$, or $\beta$ is a prefix of $\alpha$.
+The rest of this section explores the spectrum of $S(E)$.
 
 \begin{lemma} If $(\alpha, \alpha)(\beta, \beta) \neq 0$ and $|\alpha| = |\beta|$, then $\alpha = \beta$. \end{lemma}
 \begin{proof}
     Without loss of generality, suppose $\alpha$ is a prefix of $\beta$. Then $\alpha = \beta \beta'$ for some $\beta$. But
     $|\alpha| = |\beta|$, so $|\beta'| = 0$, meaning $\beta' = s(\beta)$. Thus $\alpha = \beta s(\beta) = \beta$.
 \end{proof}
-An immediate consequence of this is that for any given length, a filter contains at most one element corresponding
+An immediate corollary of this is that for any given length, a filter contains at most one element corresponding
 to a path of that length. Furthermore, if $\zeta$ is a filter, and $(\alpha, \alpha) \in \zeta$ such that $|\alpha| = n$,
 we can restrict $\alpha$ to any length $0 \leq m < n$ to produce a unique element of length $m$ inside $\zeta$.
+
+\begin{definition}
+    If $x = x_1 x_2 x_3 ...$ is a sequence of edges in $E$, where for $i \in \mathbb{N}$, 
+    $r(x_{i+1}) = s(x_i)$, we call $x$ an \emph{infinite path}, and denote the \emph{set of infinite paths}
+    \begin{align*}
+        E^\infty &:= \{x\text{: $x$ is an infinite path in $E$}\}
+    \end{align*}
+\end{definition}
+For $x \in E^\infty$, we say $\alpha \in E^*$ is a prefix of $x$ if $x = \alpha x'$
+for some infinite path $x'$.
 
 \begin{theorem} $\hat{E}_0 = \{\xi_\alpha$: $\alpha \in E^*\} \cup \{\eta_x$: $x \in E^\infty\}$ \end{theorem}
 \begin{proof}
