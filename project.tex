@@ -22,14 +22,14 @@ First we must clarify a few frequently used definitions and results.
 \begin{definition}
     We call a semigroup $S$ an \emph{inverse semigroup} if for every $s \in S$, there exists a unique
     element $s^* \in S$ such that $s = ss^*s$ and $s^* = s^*ss^*$. We call $s^*$ the \emph{inverse} of $s$.
-    If $S$ contains a zero element, we call it an \emph{inverse semigroup with zero}.
+    If $S$ contains an element $0$ such that $0s = s0 = 0 \ \forall s \in S$, we call it an \emph{inverse semigroup with zero}.
 \end{definition}
 
 \begin{definition}
     An element $e$ of an inverse semigroup $S$ is called an \emph{idempotent} if
     $e = e^2$. Note that for all idempotents, $e = e^*$, and for all elements $s$ in
-    an inverse semigroup, $ss^*$ and $s^*s$ are idempotent. We denote the set of idempotents
-    on $S$ by $E(S)$.
+    an inverse semigroup, $ss^*$ and $s^*s$ are idempotent. Furthermore, 
+    the product of idempotents is idempotent We denote the set of idempotents on $S$ by $E(S)$.
 \end{definition}
 
 \begin{remark}
@@ -61,7 +61,7 @@ This can be extended to the entire set $S$, but in this paper we are only concer
 (mention it's a meet semilattice, point to ISG primer?)
 
 \begin{definition}
-    A nonempty proper subset $\xi \subset E(S)$ is called a \emph{filter} on $S$ if
+    A nonempty proper subset $\xi \subset E(S)$ is called a \emph{filter} on $E(S)$ if
     \begin{enumerate}
         \item For $e, f \in \xi$, $ef \in \xi$
         \item For $x \in \xi$, $e \in E(S)$, $x \leq e \implies e \in \xi$
@@ -86,7 +86,7 @@ We define the subspace $\hat{E}_\infty^S := \{\xi \in \hat{E}_0^S\text{: $\xi$ i
 the inverse semigroup is obvious, we need not superscript $S$ when describing the spectrum.
 
 \begin{remark} For an ultrafilter $\eta \in \hat{E}_\infty$ and $e \in E(S)$, $e \notin \eta \implies ef = 0$ for some $f \in \eta$. \end{remark}
-
+(cite Exel)
 \begin{theorem} Every filter is contained inside an ultrafilter. \end{theorem}
 \begin{proof}
     Let $\xi \in \hat{E}_0$. To prove this, we hope to use Zorn's lemma. We define the set 
@@ -125,7 +125,7 @@ We can now begin to shift our focus towards the tight spectrum, which is the mai
 \end{definition}
 This definition may appear a bit contrived, but the next theorem hopes to hint at its significance.
 
-\begin{lemma} Let $X$, $Y$ be finite subsets of $E(S)$, and let $x =$ min$(X)$. Then
+\begin{lemma} Let $X$, $Y$ be finite subsets of $E(S)$, and let $x =$ inf$(X) = \prod_{e \in X} e$. Then
     \begin{enumerate}
         \item[(i)] $E^{X, Y} = E^{\{x\}, Y}$
         \item[(ii)] $\mathcal{U}(X, Y) = \mathcal{U}(\{x\}, Y)$
@@ -136,7 +136,7 @@ This definition may appear a bit contrived, but the next theorem hopes to hint a
         \item[(i)] 
             \begin{align*}
                 E^{X, Y} &= \{ e \in E(S)\text{: } e \leq x \ \forall x \in x \text{ and } ey = 0 \ \forall y \in Y \} \\
-                         &= \{ e \in E(S)\text{: } e \leq \text{min}(X) \text{ and } ey = 0 \ \forall y \in Y \} \\
+                         &= \{ e \in E(S)\text{: } e \leq \text{inf}(X) \text{ and } ey = 0 \ \forall y \in Y \} \\
                          &= E^{\{x\}, Y}
             \end{align*}
         \item[(ii)]
@@ -162,8 +162,8 @@ where $X$ is a singleton set.
     We now prove the other direction. Let $\xi \in \hat{E}_{\text{tight}}$ and suppose $\xi \in \mathcal{U}(\{x\}, Y)$.
     First we show that $E^{\{x\}, Y} \neq \{0\}$, by way of contradiction. If $E^{\{x\}, Y} = \{0\}$, then $Z = \emptyset$ is a finite cover.
     Since $\xi$ is tight, $\xi \cap Z \neq \emptyset$, which is a contradiction. So we can find a nonzero idempotent $e \in E^{\{x\}, Y}$.
-    Construct a filter $\zeta$ by including all the idempotents at least as large as $e$ and closing it under products. 
-    By Theorem 3.4, we can find an ultrafilter $\eta$ with $\eta \supseteq \zeta \ni e$. Note that since 
+    We note that $\{e\}$ is a prefilter; we close this set upwards to produce a filter $\zeta$, called the \emph{principal filter at $e$}.
+    By Theorem 3.4, we can find an ultrafilter $\eta$ with $\zeta \subseteq \eta$. Note that since 
     $ey = 0 \ \forall y \in Y$ and $e \leq x$, any filter containing $e$ must not intersect $Y$ and must contain $x$.
     Thus $\eta \in \mathcal{U}(\{x\}, Y)$, and because open sets of this form are a basis for the topology on $\hat{E}_0$,
     it follows that every open neighbourhood of $\xi$ contains an ultrafilter $\eta$. So $\hat{E}_\text{tight} \subseteq \overline{\hat{E}}_\infty$.
@@ -202,7 +202,7 @@ We say two finite paths are equal if and only if they have the same length and c
 Next, we extend the range and source maps to finite paths; if $\alpha = \alpha_1 ... \alpha_n$,
 we say $r(\alpha) = r(\alpha_1)$, and $s(\alpha) = s(\alpha_n)$. We can now concatenate paths
 under the same rule mentioned in Definition 4.2. Some important terminology is the notion of a prefix;
-we say $\alpha$ is a \emph{prefix} of $\beta$ if $\beta = \alpha \alpha'$ for some $\alpha' \in E^*$. Furthermore,
+we say $\alpha$ is a \emph{prefix} of $\beta$ if $\beta = \alpha \alpha'$ for some finite path $\alpha'$. Furthermore,
 We say $\alpha$ is a \emph{proper prefix} of $\beta$ if $\alpha$ is a prefix of $\beta$ and $\alpha \neq \beta$.
 
 \begin{definition}
@@ -229,7 +229,7 @@ With these preliminaries developed, we can now define the graph inverse semigrou
 
 In (Kyle's paper, cited), it is shown that this is indeed an inverse semigroup,
 where $(\alpha, \beta)^* = (\beta, \alpha)$, and the set of idempotents, $E(S(E))$, 
-contains elements of the form $(\alpha, \alpha)$.
+consists of elements of the form $(\alpha, \alpha)$, along with $0$.
 Note that the product $(\alpha, \alpha)(\beta, \beta)$ is nonzero exactly when $\alpha$ is a prefix of $\beta$, or $\beta$ is a prefix of $\alpha$.
 The rest of this section explores the spectrum of $S(E)$.
 
@@ -274,13 +274,12 @@ the ultimate goal of providing a characterization for the tight spectrum $\hat{E
     $(\beta, \beta) \leq (\delta, \delta)$. Then $\beta = \delta \delta'$ for some $\delta' \in E^*$. 
     Thus $\alpha = \beta \beta' = \delta \delta' \beta'$. Therefore $\delta$ is a prefix of $\alpha$, so 
     $(\delta, \delta) \in \xi_\alpha$. Like before, a very similar argument works for $\eta_x$. So both 
-    $\xi_\alpha$ and $\eta_x$ are filters. Going the other way, take a filter $\zeta \in \hat{E}_0$.
-    We do this in cases.
+    $\xi_\alpha$ and $\eta_x$ are filters.
     \\ \\
-    \emph{Case $1$. $\zeta$ is finite.}
-    Let $(\alpha, \alpha)$ be the minimum element inside $\zeta$. Since $\zeta$ is a filter,
-    For $(\beta, \beta) \in E(S(E))$, $(\alpha, \alpha) \leq (\beta, \beta) \implies (\beta, \beta) \in \zeta$.
-    However, by the definition of the minimal element, $(\beta, \beta) \in \zeta \implies (\alpha, \alpha) \leq (\beta, \beta)$.
+    Conversely, take a filter $\zeta \in \hat{E}_0$. We do this in cases. \emph{Case $1$. $\zeta$ is finite.}
+    Let $\zeta \ni (\alpha, \alpha) = \prod_{e \in \zeta} e$. Since $\zeta$ is a filter,
+    for $(\beta, \beta) \in E(S(E))$, $(\alpha, \alpha) \leq (\beta, \beta) \implies (\beta, \beta) \in \zeta$.
+    However, $(\beta, \beta) \in \zeta \implies (\alpha, \alpha) \leq (\beta, \beta)$, since $(\alpha, \alpha) = (\beta, \beta)f$ for some idempotent $f$.
     Thus $(\beta, \beta) \in \zeta$ if and only if $(\alpha, \alpha) \leq (\beta, \beta) \iff \beta$ is a prefix of $\alpha$. So $\zeta = \xi_\alpha$.
     \\ \\
     \emph{Case $2$. $\zeta$ is infinite.}
@@ -335,15 +334,15 @@ Now that we know what filters look like on the graph inverse semigroup, the task
     Consider the set $C := \{ (\alpha b, \alpha b)\text{: } b \in E^1, \ s(\alpha) = r(b) \}$. By the assumption
     that $s(\alpha)$ is an infinite receiver, $C$ is infinite. Given $y \in Y$, let $\nu$ be the path corresponding to $y$.
     Since $\xi_\alpha \in \mathcal{U}(\{(x, x)\}, Y)$, $\nu$ is not a prefix of $\alpha$, and thus not a proper prefix of $\alpha b$ 
-    for any $b$. Thus, if $(\alpha b, \alpha b)y \neq 0$, $\alpha b$ is a prefix of $\nu$. Then for $\beta \neq b$, 
-    $\alpha \beta$ cannot be a prefix of $\nu$. So there is at most one element of $C$ such that ($\alpha b, \alpha b)y \neq 0$.
+    for any $b$. Thus, if $(\alpha b, \alpha b)y \neq 0$, $\alpha b$ is a prefix of $\nu$. Then for any edge $c \neq b$, 
+    $\alpha c$ cannot be a prefix of $\nu$. So there is at most one element of $C$ such that ($\alpha b, \alpha b)y \neq 0$.
     By the assumption that $Y$ is finite, all but finitely many elements of $C$ are inside $E^{\{(x, x)\}, Y}$. Therefore, if $Z$
     is a cover of $E^{\{(x, x)\}, Y}$, $Z$ is an outer cover of the infinite set $E^{\{(x, x)\}, Y} \cap C$. Because $Z$ is finite, $\exists z \in Z$ 
     with $(\alpha b, \alpha b)z \neq 0$ for infinitely many $(\alpha b, \alpha b) \in E^{\{(x, x)\}, Y} \cap C$. If $\upsilon$ is the path corresponding to $z$,
     then for every $b$, either $\upsilon$ is a prefix of $\alpha b$, or $\alpha b$ is a prefix of $\upsilon$.
     All the $\alpha b$ are the same length with a different starting edge, so if one is a prefix of $\upsilon$,
     no other can be a prefix of $\upsilon$. So $\upsilon$ is a prefix of $\alpha b$ for infinitely many $b$. Thus $|\upsilon| \leq |\alpha| + 1$.
-    If $|\upsilon| = |\alpha| + 1$, we have a contradiction: $b = \beta$ for all $(\alpha b, \alpha b), (\alpha \beta, \alpha, \beta) \in C$.
+    If $|\upsilon| = |\alpha| + 1$, we have a contradiction: $b = c$ for all $(\alpha b, \alpha b), (\alpha c, \alpha, c) \in C$.
     Thus $|\upsilon| \leq |\alpha|$, so $\upsilon$ is a prefix of $\alpha$. Therefore $z = (\upsilon, \upsilon) \in \xi_\alpha$, thus 
     $\xi_\alpha \cap Z \neq \emptyset$, so $\xi_\alpha$ is tight.
     \\ \\
@@ -352,7 +351,7 @@ Now that we know what filters look like on the graph inverse semigroup, the task
     Let $Y \subseteq_\text{fin} E(S(E))$ such that $\xi_\alpha \in \mathcal{U}(\{(\alpha, \alpha)\}, Y)$. 
     Then $Z = \{(\alpha e_1, \alpha e_1), ..., (\alpha e_n, \alpha e_n)\}$ is a finite cover of $E^{\{(\alpha, \alpha)\}, Y}$,
     but $Z \cap \xi_\alpha = \emptyset$. So $\xi_\alpha$ is not tight. Thus a filter $\xi_\alpha \in \hat{E}_0 \setminus \hat{E}_\infty$
-    is tight if and only if it starts at an infinite receiver. This result combined with Theorem 3.9 completes the proof.
+    is tight if and only if it starts at an infinite receiver. This result along with Theorem 3.9 completes the proof.
 \end{proof}
 
 \section{References}
