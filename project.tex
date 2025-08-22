@@ -28,7 +28,7 @@ First we must clarify a few frequently used definitions and results.
 
 \begin{definition}
     We call a set $S$ a \emph{semigroup} if it has an associative binary operation
-    that sends a pair of elements $(a, b) \mapsto ab$ for all $a, b \in S$.
+    that sends an ordered pair of elements $(a, b) \mapsto ab$ for all $a, b \in S$.
 \end{definition}
 
 \begin{definition}
@@ -185,6 +185,11 @@ where $X$ is a singleton set.
     it follows that every open neighbourhood of $\xi$ contains an ultrafilter $\eta$. So $\hat{E}_\text{tight} \subseteq \overline{\hat{E}}_\infty$.
     Finally, by this and the work above, $\hat{E}_\text{tight} = \overline{\hat{E}}_\infty$.
 \end{proof}
+
+All of our work thus far has been working under the assumption that $S$ is an inverse
+semigroup with zero. In the case where $S$ does not contain a zero element, we define 
+the tight spectrum $E_\text{tight}^S = E_\text{tight}^{S \cup \{0\}}$, simply appending
+a zero element to $S$.
 
 \section{Directed Graphs}
     Now that we have introduced filters and the tight spectrum, we consider an
