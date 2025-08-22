@@ -1,9 +1,10 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage[backend=biber]{biblatex}
 \usepackage{csquotes}
+\usepackage{setspace}
 \addbibresource{ref.bib}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -11,7 +12,15 @@
 \newtheorem{remark}[theorem]{Remark}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
+
+\doublespacing
+
+\title{The Tight Spectrum of the Graph Inverse Semigroup}
+\author{Jason Dever}
+
 \begin{document}
+\date{}
+\maketitle
 
 \section{Introduction}
 \section{Preliminaries}
@@ -33,7 +42,8 @@ First we must clarify a few frequently used definitions and results.
     An element $e$ of an inverse semigroup $S$ is called an \emph{idempotent} if
     $e = e^2$. Note that for all idempotents, $e = e^*$, and for all elements $s$ in
     an inverse semigroup, $ss^*$ and $s^*s$ are idempotent. Furthermore, 
-    the product of idempotents is idempotent. We denote the set of idempotents on $S$ by $E(S)$.
+    the product of idempotents is idempotent. Proofs of these remarks can be found
+    in \parencite{cheaney}, Section 3. We denote the set of idempotents on $S$ by $E(S)$.
 \end{definition}
 
 \begin{remark}
@@ -58,7 +68,7 @@ in \parencite{cheaney}, Theorem 3.2.
 %     where $a \land b$ is called the \emph{meet} of $a$ and $b$.
 % \end{definition}
 
-\section{The Tight Spectrum of an Inverse Semigroup}
+\section{The Tight Spectrum}
 Now that we have a basic set of definitions in place, we can start to explore
 the set of idempotents on inverse semigroups. For this section, let $S$ be an
 inverse semigroup with zero. We can define a partial order on $E(S)$, saying that $e \leq f \iff e = ef$.
@@ -81,15 +91,14 @@ which violates our definition. We can consider $\hat{E}_0^S$ a subset of $\{0, 1
 and thus endow it with the product topology inherited from $\{0, 1\}^{E(S)}$. Equivalently,
 let $X$, $Y$ be finite subsets of $E(S)$. Define $\mathcal{U}(X, Y) := \{\xi \in \hat{E}_0\text{: } X \subseteq \xi \text{ and } Y \cap \xi = \emptyset\}$.
 Sets of the form $\mathcal{U}(X, Y)$ form a basis for the topology on the set of filters. With this topology, the topological
-space $\hat{E}_0^S$ is called the \emph{Exel spectrum} of $S$.
+space $\hat{E}_0^S$ is called the \emph{Exel spectrum} of $S$. Note that if the inverse semigroup is $S$ obvious, we need not superscript it when describing the spectrum.
 
 \begin{definition}
-    A filter $\eta \in \hat{E}_0$ is called an \emph{ultrafilter} if it is 
+    A filter $\eta \in \hat{E}_0^S$ is called an \emph{ultrafilter} if it is 
     maximal with respect to set inclusion. In other words, it is not contained
     inside another filter.
 \end{definition}
-We define the subspace $\hat{E}_\infty^S := \{\xi \in \hat{E}_0^S\text{: $\xi$ is an ultrafilter}\}$. Note that if
-the inverse semigroup is obvious, we need not superscript $S$ when describing the spectrum.
+We define the subspace $\hat{E}_\infty^S := \{\xi \in \hat{E}_0^S\text{: $\xi$ is an ultrafilter}\}$.
 
 \begin{remark} For an ultrafilter $\eta \in \hat{E}_\infty$ and $e \in E(S)$, $e \notin \eta \implies ef = 0$ for some $f \in \eta$. \end{remark}
 This follows from a characterization for the ultrafilters given in \parencite{exel}, Lemma 12.3.
