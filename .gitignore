@@ -4,3 +4,8 @@
 *.log
 *.tar
 ;
+*.bbl
+*.bbl-SAVE-ERROR
+*.bcf
+*.blg
+*.run.xml
