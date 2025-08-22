@@ -2,7 +2,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage[backend=biber, style=apa]{biblatex}
+\usepackage[backend=biber]{biblatex}
+\usepackage{csquotes}
 \addbibresource{ref.bib}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -32,14 +33,14 @@ First we must clarify a few frequently used definitions and results.
     An element $e$ of an inverse semigroup $S$ is called an \emph{idempotent} if
     $e = e^2$. Note that for all idempotents, $e = e^*$, and for all elements $s$ in
     an inverse semigroup, $ss^*$ and $s^*s$ are idempotent. Furthermore, 
-    the product of idempotents is idempotent We denote the set of idempotents on $S$ by $E(S)$.
+    the product of idempotents is idempotent. We denote the set of idempotents on $S$ by $E(S)$.
 \end{definition}
 
 \begin{remark}
     If $S$ is an inverse semigroup, for $e$, $f \in E(S)$, $ef = fe$.
 \end{remark}
 In other words, the idempotents of an inverse semigroup commute. This is proven
-in \cite{cheaney}, Theorem 3.2.
+in \parencite{cheaney}, Theorem 3.2.
 
 \begin{definition}
     Let $S$ be a set. A relation $\leq$ on $S$ is called a \emph{partial order} if
@@ -63,7 +64,7 @@ the set of idempotents on inverse semigroups. For this section, let $S$ be an
 inverse semigroup with zero. We can define a partial order on $E(S)$, saying that $e \leq f \iff e = ef$.
 This can be extended to the entire set $S$, but in this paper we are only concerned with idempotents.
 An interesting property of $E(S)$ is that under this partial order, it is a meet semilattice, where
-$e \land f = ef$. This is explored in more depth in \cite{lawson}.
+$e \land f = ef$. This is explored in more depth in \parencite{lawson}.
 
 \begin{definition}
     A nonempty proper subset $\xi \subset E(S)$ is called a \emph{filter} on $E(S)$ if
@@ -91,7 +92,7 @@ We define the subspace $\hat{E}_\infty^S := \{\xi \in \hat{E}_0^S\text{: $\xi$ i
 the inverse semigroup is obvious, we need not superscript $S$ when describing the spectrum.
 
 \begin{remark} For an ultrafilter $\eta \in \hat{E}_\infty$ and $e \in E(S)$, $e \notin \eta \implies ef = 0$ for some $f \in \eta$. \end{remark}
-This follows from a characterization for the ultrafilters given in \cite{exel}, Lemma 12.3.
+This follows from a characterization for the ultrafilters given in \parencite{exel}, Lemma 12.3.
 
 \begin{theorem} Every filter is contained inside an ultrafilter. \end{theorem}
 \begin{proof}
@@ -233,7 +234,7 @@ With these preliminaries developed, we can now define the graph inverse semigrou
     \end{align*}
 \end{definition}
 
-In \cite{cheaney}, Section 3, it is shown that this is indeed an inverse semigroup,
+In \parencite{cheaney}, Section 3, it is shown that this is indeed an inverse semigroup,
 where $(\alpha, \beta)^* = (\beta, \alpha)$, and the set of idempotents, $E(S(E))$, 
 consists of elements of the form $(\alpha, \alpha)$, along with $0$.
 Note that the product $(\alpha, \alpha)(\beta, \beta)$ is nonzero exactly when $\alpha$ is a prefix of $\beta$, or $\beta$ is a prefix of $\alpha$.
@@ -360,7 +361,6 @@ Now that we know what filters look like on the graph inverse semigroup, the task
     is tight if and only if it starts at an infinite receiver. This result along with Theorem 3.9 completes the proof.
 \end{proof}
 
-\section{References}
 \printbibliography
 
 \end{document}
