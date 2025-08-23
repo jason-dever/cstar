@@ -43,14 +43,14 @@ First we must clarify a few frequently used definitions and results.
     $e = e^2$. Note that for all idempotents, $e = e^*$, and for all elements $s$ in
     an inverse semigroup, $ss^*$ and $s^*s$ are idempotent. Furthermore, 
     the product of idempotents is idempotent. Proofs of these remarks can be found
-    in \parencite{cheaney}, Section 3. We denote the set of idempotents on $S$ by $E(S)$.
+    in \parencite[Section 3]{cheaney}. We denote the set of idempotents on $S$ by $E(S)$.
 \end{definition}
 
 \begin{remark}
     If $S$ is an inverse semigroup, for $e$, $f \in E(S)$, $ef = fe$.
 \end{remark}
 In other words, the idempotents of an inverse semigroup commute. This is proven
-in \parencite{cheaney}, Theorem 3.2.
+in \parencite[Theorem 3.2]{cheaney}.
 
 \begin{definition}
     Let $S$ be a set. A relation $\leq$ on $S$ is called a \emph{partial order} if
@@ -101,7 +101,7 @@ space $\hat{E}_0^S$ is called the \emph{Exel spectrum} of $S$. Note that if the 
 We define the subspace $\hat{E}_\infty^S := \{\xi \in \hat{E}_0^S\text{: $\xi$ is an ultrafilter}\}$.
 
 \begin{remark} For an ultrafilter $\eta \in \hat{E}_\infty$ and $e \in E(S)$, $e \notin \eta \implies ef = 0$ for some $f \in \eta$. \end{remark}
-This follows from a characterization for the ultrafilters given in \parencite{exel}, Lemma 12.3.
+This follows from a characterization for the ultrafilters given in \parencite[Lemma 12.3]{exel}.
 
 \begin{theorem} Every filter is contained inside an ultrafilter. \end{theorem}
 \begin{proof}
@@ -248,7 +248,7 @@ With these preliminaries developed, we can now define the graph inverse semigrou
     \end{align*}
 \end{definition}
 
-In \parencite{cheaney}, Section 3, it is shown that this is indeed an inverse semigroup,
+In \parencite[Section 3]{cheaney}, it is shown that this is indeed an inverse semigroup,
 where $(\alpha, \beta)^* = (\beta, \alpha)$, and the set of idempotents, $E(S(E))$, 
 consists of elements of the form $(\alpha, \alpha)$, along with $0$.
 Note that the product $(\alpha, \alpha)(\beta, \beta)$ is nonzero exactly when $\alpha$ is a prefix of $\beta$, or $\beta$ is a prefix of $\alpha$.
@@ -374,6 +374,21 @@ Now that we know what filters look like on the graph inverse semigroup, the task
     but $Z \cap \xi_\alpha = \emptyset$. So $\xi_\alpha$ is not tight. Thus a filter $\xi_\alpha \in \hat{E}_0 \setminus \hat{E}_\infty$
     is tight if and only if it starts at an infinite receiver. This result along with Theorem 3.9 completes the proof.
 \end{proof}
+
+\section{C*-Algebras}
+We provide a brief introduction into the theory of C*-algebras, and summarize
+some of the literature linking the tight spectrum to this field of study. 
+
+\begin{definition}
+    A Banach algebra $A$ over $\mathbb{C}$ endowed with a unary map $x \mapsto x^*$ for $x \in A$
+    is called a \emph{C*-algebra} if, $\forall x$, $y \in A$, $\lambda \in \mathbb{C}$,
+    \begin{itemize}
+        \item $x = (x^*)^*$
+        \item $(xy)^* = y^*x^*$
+        \item $(x + \lambda y)^* = x^* + \overline{\lambda} y^*$
+        \item $||xx^*|| = ||x||^2$ \quad called the \emph{C*-condition}
+    \end{itemize}
+\end{definition}
 
 \printbibliography
 
