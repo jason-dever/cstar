@@ -174,8 +174,8 @@ where $X$ is a singleton set.
     with $f e_f = 0$. Define $e := \left( \prod_{f \in Y \cup Z} e_f \right) x$. $e \leq x$ and $ey = 0 \ \forall y \in Y$, so
     $e \in E^{\{x\}, Y}$, but $ez = 0 \ \forall z \in Z$. So $Z$ is not a finite cover of $E^{\{x\}, Y}$, thus $\xi$ is a tight filter,
     hence $\overline{\hat{E}}_\infty \subseteq \hat{E}_{\text{tight}}$. 
-    \\ \\
-    We now prove the other direction. Let $\xi \in \hat{E}_{\text{tight}}$ and suppose $\xi \in \mathcal{U}(\{x\}, Y)$.
+    \newline
+    Conversely, let $\xi \in \hat{E}_{\text{tight}}$ and suppose $\xi \in \mathcal{U}(\{x\}, Y)$.
     First we show that $E^{\{x\}, Y} \neq \{0\}$, by way of contradiction. If $E^{\{x\}, Y} = \{0\}$, then $Z = \emptyset$ is a finite cover.
     Since $\xi$ is tight, $\xi \cap Z \neq \emptyset$, which is a contradiction. So we can find a nonzero idempotent $e \in E^{\{x\}, Y}$.
     We note that $\{e\}$ is a prefilter; we close this set upwards to produce a filter $\zeta$, called the \emph{principal filter at $e$}.
@@ -296,13 +296,14 @@ the ultimate goal of providing a characterization for the tight spectrum $\hat{E
     Thus $\alpha = \beta \beta' = \delta \delta' \beta'$. Therefore $\delta$ is a prefix of $\alpha$, so 
     $(\delta, \delta) \in \xi_\alpha$. Like before, a very similar argument works for $\eta_x$. So both 
     $\xi_\alpha$ and $\eta_x$ are filters.
-    \\ \\
+    \newline
     Conversely, take a filter $\zeta \in \hat{E}_0$. We do this in cases. \emph{Case $1$. $\zeta$ is finite.}
     Let $\zeta \ni (\alpha, \alpha) = \prod_{e \in \zeta} e$. Since $\zeta$ is a filter,
     for $(\beta, \beta) \in E(S(E))$, $(\alpha, \alpha) \leq (\beta, \beta) \implies (\beta, \beta) \in \zeta$.
-    However, $(\beta, \beta) \in \zeta \implies (\alpha, \alpha) \leq (\beta, \beta)$, since $(\alpha, \alpha) = (\beta, \beta)f$ for some idempotent $f$.
+    However, $(\beta, \beta) \in \zeta \implies (\alpha, \alpha) \leq (\beta, \beta)$, since $(\alpha, \alpha) = (\beta, \beta)f$ 
+    for the idempotent $f := \prod_{e \in \zeta \setminus \{(\beta, \beta)\}} e$.
     Thus $(\beta, \beta) \in \zeta$ if and only if $(\alpha, \alpha) \leq (\beta, \beta) \iff \beta$ is a prefix of $\alpha$. So $\zeta = \xi_\alpha$.
-    \\ \\
+    \newline
     \emph{Case $2$. $\zeta$ is infinite.}
     Using Lemma 4.6, we can get an idea of what elements of $\zeta$ look like.
     For each nonnegative integer, $\zeta$ contains precisely one element corresponding
@@ -310,7 +311,7 @@ the ultimate goal of providing a characterization for the tight spectrum $\hat{E
     path in the filter is a prefix of every longer path also contained inside the filter.
     All of this given, we can find an $x \in E^\infty$ such that every path inside $\zeta$
     is a prefix of $x$. By the uniqueness of filter elements, it follows that $\zeta = \eta_x$.
-    \\ \\
+    \newline
     We have shown that a nonempty subset $\zeta \subset E(S(E))$ is a filter if and only if
     it is of the form $\xi_\alpha$ or $\eta_x$. Thus $\hat{E}_0 = \{\xi_\alpha$: $\alpha \in E^*\} \cup \{\eta_x$: $x \in E^\infty\}$.
 \end{proof}
@@ -319,20 +320,20 @@ Now that we know what filters look like on the graph inverse semigroup, the task
 \begin{theorem} $\hat{E}_\infty = \{\eta_x$: $x \in E^\infty\} \cup \{\xi_\alpha$: $\alpha \in E^*$ and $|r^{-1}\{s(\alpha)\}| = 0 \}$ \end{theorem}
 \begin{proof}
     We need only consider various kinds of filters, determining whether they are ultrafilters or not. We do this in cases.
-    \\ \\
+    \newline
     \emph{Case $1$. $\xi_\alpha$, $|r^{-1}\{s(\alpha)\}| > 0$.} Take $e \in E^1$ such that $r(e) = s(\alpha)$. It is clear that
     $\xi_\alpha \subset \xi_{\alpha e}$. So $\xi_\alpha$ is not an ultrafilter.
-    \\ \\
+    \newline
     \emph{Case $2$. $\xi_\alpha$, $|r^{-1}\{s(\alpha)\}| = 0$.} Suppose we can find $\zeta \in \hat{E}_0$ such that $\xi_\alpha \subset \zeta$.
     For $0 \leq i \leq |\alpha|$, $\zeta$ inherits its idempotent with the path corresponding to length $i$ from $\xi_\alpha$. So we can find an element $(\beta, \beta) \in \zeta$ with
     $|\beta| > |\alpha|$ and $(\alpha, \alpha)(\beta, \beta) \neq 0$. Thus $\beta = \alpha \alpha'$ for some $\alpha' \in E^*$. But no edges go to $s(\alpha)$, so we cannot
     construct $\alpha'$ with $r(\alpha') = s(\alpha)$. This is a contradiction, so $\xi_\alpha$ is an ultrafilter.
-    \\ \\
+    \newline
     \emph{Case $3$. $\eta_x$, $x \in E^\infty$.} Suppose there exists $\zeta \in \hat{E}_0$ such that $\eta_x \subset \zeta$. Then we can find
     $(\beta, \beta) \in \zeta$ such that $(\beta, \beta) \notin \eta_x$. But $\eta_x$, as we showed before, contains an element $z$ corresponding to
     a path of length $|\beta|$. As a superset of $\eta_x$, $\zeta$ also contains $z$. By Lemma 4.6, it follows that $(\beta, \beta) = z \in \eta_x$,
     which is a contradiction. So $\eta_x$ is an ultrafilter for all $x \in E^\infty$.
-    \\ \\
+    \newline
     We have identified which filters are ultrafilters, showing that $\hat{E}_\infty = \{\xi_\alpha$: $\alpha \in E^*$ and $|r^{-1}\{s(\alpha)\}| = 0\} \cup \{\eta_x$: $x \in E^\infty\}$.
 \end{proof}
 
@@ -366,7 +367,7 @@ Now that we know what filters look like on the graph inverse semigroup, the task
     If $|\upsilon| = |\alpha| + 1$, we have a contradiction: $b = c$ for all $(\alpha b, \alpha b), (\alpha c, \alpha, c) \in C$.
     Thus $|\upsilon| \leq |\alpha|$, so $\upsilon$ is a prefix of $\alpha$. Therefore $z = (\upsilon, \upsilon) \in \xi_\alpha$, thus 
     $\xi_\alpha \cap Z \neq \emptyset$, so $\xi_\alpha$ is tight.
-    \\ \\
+    \newline
     In our final case, we let $\alpha \in E^*$, and suppose $0 < |r^{-1}\{s(\alpha)\}| < \infty$. Then
     there exists a nonempty, finite collection of edges $e_1, ..., e_n$ with $r(e_i) = s(\alpha)$ for $1 \leq i \leq n$.
     Let $Y \subseteq_\text{fin} E(S(E))$ such that $\xi_\alpha \in \mathcal{U}(\{(\alpha, \alpha)\}, Y)$. 
