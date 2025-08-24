@@ -16,14 +16,32 @@
 
 \doublespacing
 
-\title{The Tight Spectrum of a Graph Inverse Semigroup}
+\title{The Tight Spectrum of an Inverse Semigroup}
 \author{Jason Dever}
 
 \begin{document}
 \date{}
 \maketitle
 
+\begin{abstract}
+    This paper provides the reader with an introduction to the theory of filters
+    on inverse semigroups, in particular providing a characterization for the
+    tight spectrum. Next it focuses on potentially infinite directed graphs,
+    identifying the tight spectrum of the graph inverse semigroup and introducing
+    its relation to the graph C*-algebra.
+\end{abstract}
+
 \section{Introduction}
+The theory of inverse semigroups was founded independently by Wagner and Preston in the 1950s
+through the study of compositions of partial bijections. The purpose of this paper is to provide an introduction into inverse
+semigroups, their idempotent elements, and the theory of filters on the semilattice
+of idempotents. In section 3, we introduce the notion of a filter, establish
+a topology on the set of filters, and characterize the tight spectrum.
+In section 4, we introduce an example: the graph inverse semigroup.
+We provide a complete characterization of the tight spectrum of a graph inverse semigroup,
+then in section 5 we relate it to graph C*-algebras, first studied in 1980 by Cuntz
+and Krieger.
+
 \section{Preliminaries}
 First we must clarify a few frequently used definitions and results.
 
@@ -418,6 +436,14 @@ the main result found in the literature linking the tight spectrum to this field
     \end{itemize}
 \end{theorem}
 
+\begin{definition}
+    For a C*-algebra A, we define a \emph{projection} as an element $p \in A$
+    such that $p = p^2 = p^*$. We define a \emph{partial isometry} as an element
+    $s \in A$ such that $ss^*s = s$. Note that for any partial isometry $s$, 
+    $ss^*$ and $s^*s$ are projections. These translate to the characterizations of
+    projections and partial isometries as linear operators between Hilbert spaces.
+\end{definition}
+
 \begin{definition} \parencite[Chapter 5]{raeburn}
     We say a graph $E$ is \emph{countable} if both $E^0$ and $E^1$ are countable.
     For a countable graph $E$ and a Hilbert space $\mathcal{H}$, we define
@@ -443,17 +469,18 @@ This is called the \emph{diagonal C*-algebra} of $E$.
     In \cite[Theorem 2.1]{webster}, the set $E^* \cup E^\infty$ is endowed with
     a locally compact, Hausdorff topology. We define the \emph{boundary path space}
     $\partial E = E^\infty \cup \{\alpha \in E^*\text{: } |r^{-1}\{s(\alpha)\}| \in \{0, \infty\}\} \subseteq E^* \cup E^\infty$.
+    Note that these are the paths corresponding to tight filters.
 \end{definition}
 
-\begin{theorem} $D_E \cong C_0(\partial E)$. \emph{A proof of this is given in \cite[Theorem 3.7]{webster}.} \end{theorem}
-
 \begin{theorem} $\partial E$ is homeomorphic to $\hat{E}_\text{tight}$. \emph{This is proven in \cite[Example 6.8]{boava}} \end{theorem}
+
+\begin{theorem} $D_E \cong C_0(\partial E)$. \emph{A proof of this is given in \cite[Theorem 3.7]{webster}.} \end{theorem}
 
 This finally leads us to our final result: the relationship between the tight 
 spectrum of the graph inverse semigroup and the graph C*-algebra.
 \begin{corollary} $D_E \cong C_0(\hat{E}_\text{tight})$ \end{corollary}
 \begin{proof}
-    This falls out when one combines the second part of Theorem 5.3 with Theorems 5.6 and 5.7,
+    This falls out when one combines the second part of Theorem 5.3 with Theorems 5.7 and 5.8,
     considering that isomorphism is an equivalence relation.
 \end{proof}
 
