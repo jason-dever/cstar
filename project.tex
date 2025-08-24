@@ -46,8 +46,9 @@ and Krieger.
 First we must clarify a few frequently used definitions and results.
 
 \begin{definition}
-    We call a set $S$ a \emph{semigroup} if it has an associative binary operation
-    that sends an ordered pair of elements $(a, b) \mapsto ab$ for all $a, b \in S$.
+    We call a set $S$ a \emph{semigroup} if it has an associative binary operation,
+    typically referred to as \emph{multiplication}, that sends an ordered pair of 
+    elements $(a, b) \mapsto ab$ for all $a, b \in S$.
 \end{definition}
 
 \begin{definition}
@@ -98,8 +99,8 @@ $e \land f = ef$. This is explored in more depth in \parencite{lawson}.
 \begin{definition}
     A nonempty proper subset $\xi \subset E(S)$ is called a \emph{filter} on $E(S)$ if
     \begin{enumerate}
-        \item For $e, f \in \xi$, $ef \in \xi$
-        \item For $x \in \xi$, $e \in E(S)$, $x \leq e \implies e \in \xi$
+        \item For $e, f \in \xi$, $ef \in \xi$ \quad i.e. $\xi$ is \emph{downward directed}
+        \item For $x \in \xi$, $e \in E(S)$, $x \leq e \implies e \in \xi$ \quad i.e. $\xi$ is \emph{upward closed}
     \end{enumerate}
 \end{definition}
 Subsets that only satisfy the first condition are called \emph{prefilters}.
@@ -160,7 +161,7 @@ We can now begin to shift our focus towards the tight spectrum, which is the mai
 \end{definition}
 This definition may appear a bit contrived, but the next theorem hopes to hint at its significance.
 
-\begin{lemma} Let $X$, $Y$ be finite subsets of $E(S)$, and let $x =$ inf$(X) = \prod_{e \in X} e$. Then
+\begin{lemma} Let $X$, $Y$ be finite subsets of $E(S)$, and let $x = \prod_{e \in X} e$. Then
     \begin{enumerate}
         \item[(i)] $E^{X, Y} = E^{\{x\}, Y}$
         \item[(ii)] $\mathcal{U}(X, Y) = \mathcal{U}(\{x\}, Y)$
@@ -171,7 +172,8 @@ This definition may appear a bit contrived, but the next theorem hopes to hint a
         \item[(i)] 
             \begin{align*}
                 E^{X, Y} &= \{ e \in E(S)\text{: } e \leq x \ \forall x \in x \text{ and } ey = 0 \ \forall y \in Y \} \\
-                         &= \{ e \in E(S)\text{: } e \leq \text{inf}(X) \text{ and } ey = 0 \ \forall y \in Y \} \\
+                         &= \{ e \in E(S)\text{: } e = ex \ \forall x \in x \text{ and } ey = 0 \ \forall y \in Y \} \\
+                         &= \{ e \in E(S)\text{: } e = e \prod_{x \in x} x \text{ and } ey = 0 \ \forall y \in Y \} \\
                          &= E^{\{x\}, Y}
             \end{align*}
         \item[(ii)]
