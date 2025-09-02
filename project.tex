@@ -40,7 +40,8 @@ a topology on the set of filters, and characterize the tight spectrum.
 In section 4, we introduce an example: the graph inverse semigroup.
 We provide a complete characterization of the tight spectrum of a graph inverse semigroup,
 then in section 5 we relate it to graph C*-algebras, first studied in 1980 by Cuntz
-and Krieger.
+and Krieger. Our primary references were \parencite{cheaney}, \parencite{exel}, and
+\parencite{pardoortega}.
 
 \section{Preliminaries}
 First we must clarify a few frequently used definitions and results.
@@ -207,10 +208,10 @@ where $X$ is a singleton set.
     Finally, by this and the work above, $\hat{E}_\text{tight} = \overline{\hat{E}}_\infty$.
 \end{proof}
 
-All of our work thus far has been working under the assumption that $S$ is an inverse
-semigroup with zero. In the case where $S$ does not contain a zero element, we define 
-the tight spectrum $E_\text{tight}^S = E_\text{tight}^{S \cup \{0\}}$, simply appending
-a zero element to $S$.
+\noindent So far we have been working under the assumption that $S$ is an inverse
+semigroup with zero. In the case where $S$ does not contain a zero element, we can extend
+the definitions introduced in this section by considering the inverse semigroup $S \cup \{0\}$,
+but the tight spectrum is always just a single point, and thus not very interesting.
 
 \section{Directed Graphs}
     Now that we have introduced filters and the tight spectrum, we consider an
@@ -235,12 +236,12 @@ a zero element to $S$.
 \begin{definition}
     For $n \in \mathbb{N}$, we define
     \begin{align*}
-        E^n := \{\alpha\text{: $\alpha$ is a finite path in E, $|\alpha| = n$}\}
+        E^n := \{\alpha\text{: $\alpha$ is a finite path in $E$, $|\alpha| = n$}\}
     \end{align*}
 \end{definition}
 
 \noindent This provides some intuition about our naming convention for the set of vertices; a vertex can be considered "a path of length zero". 
-We say two finite paths are equal if and only if they have the same length and consist of exactly the same edges.
+We say two finite paths are equal if and only if they have the same length and consist of exactly the same edges in exactly the same order.
 Next, we extend the range and source maps to finite paths; if $\alpha = \alpha_1 ... \alpha_n$,
 we say $r(\alpha) = r(\alpha_1)$, and $s(\alpha) = s(\alpha_n)$. We can now concatenate paths
 under the same rule mentioned in Definition 4.2. Some important terminology is the notion of a prefix;
@@ -281,8 +282,8 @@ The rest of this section explores the spectrum of $S(E)$.
     $|\alpha| = |\beta|$, so $|\beta'| = 0$, meaning $\beta' = s(\beta)$. Thus $\alpha = \beta s(\beta) = \beta$.
 \end{proof}
 \noindent An immediate corollary of this is that for any given length, a filter contains at most one element corresponding
-to a path of that length. Furthermore, if $\zeta$ is a filter, and $(\alpha, \alpha) \in \zeta$ such that $|\alpha| = n$,
-we can restrict $\alpha$ to any length $0 \leq m < n$ to produce a unique element of length $m$ inside $\zeta$.
+to a path of that length. Furthermore, if $\zeta$ is a filter, and $(\alpha, \alpha) \in \zeta$,
+we can take a prefix of alpha of length $0 \leq m < |\alpha|$ to produce a new unique element of length $m$ inside $\zeta$.
 
 \begin{definition}
     If $x = x_1 x_2 x_3 ...$ is a sequence of edges in $E$, where for $i \in \mathbb{N}$, 
