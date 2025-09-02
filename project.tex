@@ -24,7 +24,7 @@
 \maketitle
 
 \begin{abstract}
-    This paper provides the reader with an introduction to the theory of filters
+    \noindent This paper provides the reader with an introduction to the theory of filters
     on inverse semigroups, in particular providing a characterization for the
     tight spectrum. Next it focuses on potentially infinite directed graphs,
     identifying the tight spectrum of the graph inverse semigroup and introducing
@@ -69,7 +69,7 @@ First we must clarify a few frequently used definitions and results.
 \begin{remark}
     If $S$ is an inverse semigroup, for $e$, $f \in E(S)$, $ef = fe$.
 \end{remark}
-In other words, the idempotents of an inverse semigroup commute. This is proven
+\noindent In other words, the idempotents of an inverse semigroup commute. This is proven
 in \parencite[Theorem 3.2]{cheaney}.
 
 \begin{definition}
@@ -103,7 +103,7 @@ $e \land f = ef$. This is explored in more depth in \parencite{lawson}.
         \item For $x \in \xi$, $e \in E(S)$, $x \leq e \implies e \in \xi$ \quad i.e. $\xi$ is \emph{upward closed}
     \end{enumerate}
 \end{definition}
-Subsets that only satisfy the first condition are called \emph{prefilters}.
+\noindent Subsets that only satisfy the first condition are called \emph{prefilters}.
 We denote the set of filters on $S$ by $\hat{E}_0^S$. 
 An important remark is that the zero element of $S$ is not contained 
 inside any filters. If $0 \in \xi$, condition (2) would imply that $\xi = S$,
@@ -114,14 +114,14 @@ Sets of the form $\mathcal{U}(X, Y)$ form a basis for the topology on the set of
 space $\hat{E}_0^S$ is called the \emph{Exel spectrum} of $S$. Note that if the inverse semigroup is $S$ obvious, we need not superscript it when describing the spectrum.
 
 \begin{definition}
-    A filter $\eta \in \hat{E}_0^S$ is called an \emph{ultrafilter} if it is 
+    A filter $\eta \in \hat{E}_0$ is called an \emph{ultrafilter} if it is 
     maximal with respect to set inclusion. In other words, it is not contained
     inside another filter.
+    We define the subspace $\hat{E}_\infty^S := \{\xi \in \hat{E}_0\text{: $\xi$ is an ultrafilter}\} \subseteq \hat{E}_0$.
 \end{definition}
-We define the subspace $\hat{E}_\infty^S := \{\xi \in \hat{E}_0^S\text{: $\xi$ is an ultrafilter}\}$.
 
 \begin{remark} For an ultrafilter $\eta \in \hat{E}_\infty$ and $e \in E(S)$, $e \notin \eta \implies ef = 0$ for some $f \in \eta$. \end{remark}
-This follows from a characterization for the ultrafilters given in \parencite[Lemma 12.3]{exel}.
+\noindent This follows from a characterization for the ultrafilters given in \parencite[Lemma 12.3]{exel}.
 
 \begin{theorem} Every filter is contained inside an ultrafilter. \end{theorem}
 \begin{proof}
@@ -140,7 +140,7 @@ This follows from a characterization for the ultrafilters given in \parencite[Le
     $\xi \subseteq \eta$.
 \end{proof}
 
-We can now begin to shift our focus towards the tight spectrum, which is the main topic of this section.
+\noindent We can now begin to shift our focus towards the tight spectrum, which is the main topic of this section.
 
 \begin{definition} Let $X$, $Y$ be finite subsets of $E(S)$. We define
     \begin{align*} 
@@ -159,7 +159,7 @@ We can now begin to shift our focus towards the tight spectrum, which is the mai
     and for all finite covers $Z$ of $E^{X, Y}$, $\xi \in \mathcal{U}(X, Y) \implies Z \cap \xi \neq \emptyset$. We call
     the set of tight filters the \emph{tight spectrum}, and denote it by $\hat{E}_{\text{tight}}^S$.
 \end{definition}
-This definition may appear a bit contrived, but the next theorem hopes to hint at its significance.
+\noindent This definition may appear a bit contrived, but the next theorem hopes to hint at its significance.
 
 \begin{lemma} Let $X$, $Y$ be finite subsets of $E(S)$, and let $x = \prod_{e \in X} e$. Then
     \begin{enumerate}
@@ -182,7 +182,7 @@ This definition may appear a bit contrived, but the next theorem hopes to hint a
             shown that $\mathcal{U}(X, Y)$ and $\mathcal{U}(\{x\}, Y)$ are subsets of eachother, so they are equal.
     \end{enumerate}
 \end{proof}
-When we are working with $\mathcal{U}(X, Y)$ and $E^{X, Y}$, this lemma allows us the freedom of only considering the case
+\noindent When we are working with $\mathcal{U}(X, Y)$ and $E^{X, Y}$, this lemma allows us the freedom of only considering the case
 where $X$ is a singleton set.
 
 \begin{theorem} $\hat{E}_{\text{tight}}$ is the closure of $\hat{E}_\infty$ in $\hat{E}_0$. \end{theorem}
@@ -223,7 +223,7 @@ a zero element to $S$.
     in a plane, where an edge $e$ can be thought of as an arrow pointing from $s(e)$ to $r(e)$.
 \end{definition}
 
-For the rest of the section, we will let $E$ be a directed graph.
+\noindent For the rest of the section, we will let $E$ be a directed graph.
 
 \begin{definition}
     If $\alpha_1$, $\alpha_2$, ..., $\alpha_n \in E^1$,
@@ -239,7 +239,7 @@ For the rest of the section, we will let $E$ be a directed graph.
     \end{align*}
 \end{definition}
 
-This provides some intuition about our naming convention for the set of vertices; a vertex can be considered a "path of length zero". 
+\noindent This provides some intuition about our naming convention for the set of vertices; a vertex can be considered "a path of length zero". 
 We say two finite paths are equal if and only if they have the same length and consist of exactly the same edges.
 Next, we extend the range and source maps to finite paths; if $\alpha = \alpha_1 ... \alpha_n$,
 we say $r(\alpha) = r(\alpha_1)$, and $s(\alpha) = s(\alpha_n)$. We can now concatenate paths
@@ -254,7 +254,7 @@ We say $\alpha$ is a \emph{proper prefix} of $\beta$ if $\alpha$ is a prefix of 
     \end{align*}
 \end{definition}
 
-With these preliminaries developed, we can now define the graph inverse semigroup.
+\noindent With these preliminaries developed, we can now define the graph inverse semigroup.
 
 \begin{definition}
     Let $S(E)$ = $\{(\alpha, \beta) \in E^* \times E^*$: $s(\alpha) = s(\beta)\} \cup \{0\}$. This is called
@@ -269,7 +269,7 @@ With these preliminaries developed, we can now define the graph inverse semigrou
     \end{align*}
 \end{definition}
 
-In \parencite[Section 3]{cheaney}, it is shown that this is indeed an inverse semigroup,
+\noindent In \parencite[Section 3]{cheaney}, it is shown that this is indeed an inverse semigroup,
 where $(\alpha, \beta)^* = (\beta, \alpha)$, and the set of idempotents, $E(S(E))$, 
 consists of elements of the form $(\alpha, \alpha)$, along with $0$.
 Note that the product $(\alpha, \alpha)(\beta, \beta)$ is nonzero exactly when $\alpha$ is a prefix of $\beta$, or $\beta$ is a prefix of $\alpha$.
@@ -280,7 +280,7 @@ The rest of this section explores the spectrum of $S(E)$.
     Without loss of generality, suppose $\alpha$ is a prefix of $\beta$. Then $\alpha = \beta \beta'$ for some $\beta$. But
     $|\alpha| = |\beta|$, so $|\beta'| = 0$, meaning $\beta' = s(\beta)$. Thus $\alpha = \beta s(\beta) = \beta$.
 \end{proof}
-An immediate corollary of this is that for any given length, a filter contains at most one element corresponding
+\noindent An immediate corollary of this is that for any given length, a filter contains at most one element corresponding
 to a path of that length. Furthermore, if $\zeta$ is a filter, and $(\alpha, \alpha) \in \zeta$ such that $|\alpha| = n$,
 we can restrict $\alpha$ to any length $0 \leq m < n$ to produce a unique element of length $m$ inside $\zeta$.
 
@@ -291,7 +291,7 @@ we can restrict $\alpha$ to any length $0 \leq m < n$ to produce a unique elemen
         E^\infty &:= \{x\text{: $x$ is an infinite path in $E$}\}
     \end{align*}
 \end{definition}
-For $x \in E^\infty$, we say $\alpha \in E^*$ is a prefix of $x$ if $x = \alpha x'$
+\noindent For $x \in E^\infty$, we say $\alpha \in E^*$ is a prefix of $x$ if $x = \alpha x'$
 for some infinite path $x'$. Our goal is now to identify filters on $E(S(E))$, with
 the ultimate goal of providing a characterization for the tight spectrum $\hat{E}_\text{tight}$.
 
@@ -336,7 +336,8 @@ the ultimate goal of providing a characterization for the tight spectrum $\hat{E
     We have shown that a nonempty subset $\zeta \subset E(S(E))$ is a filter if and only if
     it is of the form $\xi_\alpha$ or $\eta_x$. Thus $\hat{E}_0 = \{\xi_\alpha$: $\alpha \in E^*\} \cup \{\eta_x$: $x \in E^\infty\}$.
 \end{proof}
-Now that we know what filters look like on the graph inverse semigroup, the task of identifying ultrafilters becomes much simpler.
+
+\noindent Now that we know what filters look like on the graph inverse semigroup, the task of identifying ultrafilters becomes much simpler.
 
 \begin{theorem} $\hat{E}_\infty = \{\eta_x$: $x \in E^\infty\} \cup \{\xi_\alpha$: $\alpha \in E^*$ and $|r^{-1}\{s(\alpha)\}| = 0 \}$ \end{theorem}
 \begin{proof}
@@ -374,7 +375,7 @@ Now that we know what filters look like on the graph inverse semigroup, the task
         E^{\{(x, x)\}, Y} = \{ (xx', xx') \text{: } x' \in E^*, \ r(x') = s(x) \text{ and } (xx', xx')y = 0 \ \forall y \in Y \}
     \end{align*}
 
-    Consider the set $C := \{ (\alpha b, \alpha b)\text{: } b \in E^1, \ s(\alpha) = r(b) \}$. By the assumption
+    \noindent Consider the set $C := \{ (\alpha b, \alpha b)\text{: } b \in E^1, \ s(\alpha) = r(b) \}$. By the assumption
     that $s(\alpha)$ is an infinite receiver, $C$ is infinite. Given $y \in Y$, let $\nu$ be the path corresponding to $y$.
     Since $\xi_\alpha \in \mathcal{U}(\{(x, x)\}, Y)$, $\nu$ is not a prefix of $\alpha$, and thus not a proper prefix of $\alpha b$ 
     for any $b$. Thus, if $(\alpha b, \alpha b)y \neq 0$, $\alpha b$ is a prefix of $\nu$. Then for any edge $c \neq b$, 
@@ -463,7 +464,7 @@ the main result found in the literature linking the tight spectrum to this field
     it is possible to associate a C*-algebra $C^*(E)$, generated by the corresponding Cuntz-Krieger
     family of operators on $\mathcal{H}$.
 \end{definition} 
-For a finite path $\alpha = \alpha_1 ... \alpha_n$, we define $s_\alpha = s_{\alpha_1} ... s_{\alpha_n}$.
+\noindent For a finite path $\alpha = \alpha_1 ... \alpha_n$, we define $s_\alpha = s_{\alpha_1} ... s_{\alpha_n}$.
 One can identify a commutative subalgebra $D_E = \overline{\text{span}}\{s_\mu s_\mu^*\text{: } \mu \in E^*\} \subset C^*(E)$.
 This is called the \emph{diagonal C*-algebra} of $E$.
 
@@ -478,7 +479,7 @@ This is called the \emph{diagonal C*-algebra} of $E$.
 
 \begin{theorem} $D_E \cong C_0(\partial E)$. \emph{A proof of this is given in \cite[Theorem 3.7]{webster}.} \end{theorem}
 
-This finally leads us to our final result: the relationship between the tight 
+\noindent This leads us to our final result: the relationship between the tight 
 spectrum of the graph inverse semigroup and the graph C*-algebra.
 \begin{corollary} $D_E \cong C_0(\hat{E}_\text{tight})$ \end{corollary}
 \begin{proof}
