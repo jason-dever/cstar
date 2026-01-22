@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{physics}
 \usepackage{amsthm}
 \usepackage[backend=biber]{biblatex}
 \usepackage{csquotes}
@@ -172,9 +173,9 @@ space $\hat{E}_0^S$ is called the \emph{Exel spectrum} of $S$. Note that if the 
     \begin{enumerate}
         \item[(i)] 
             \begin{align*}
-                E^{X, Y} &= \{ e \in E(S)\text{: } e \leq x \ \forall x \in x \text{ and } ey = 0 \ \forall y \in Y \} \\
-                         &= \{ e \in E(S)\text{: } e = ex \ \forall x \in x \text{ and } ey = 0 \ \forall y \in Y \} \\
-                         &= \{ e \in E(S)\text{: } e = e \prod_{x \in x} x \text{ and } ey = 0 \ \forall y \in Y \} \\
+                E^{X, Y} &= \{ e \in E(S)\text{: } e \leq x \ \forall x \in X \text{ and } ey = 0 \ \forall y \in Y \} \\
+                         &= \{ e \in E(S)\text{: } e = ex \ \forall x \in X \text{ and } ey = 0 \ \forall y \in Y \} \\
+                         &= \{ e \in E(S)\text{: } e = e \prod_{x \in X} x \text{ and } ey = 0 \ \forall y \in Y \} \\
                          &= E^{\{x\}, Y}
             \end{align*}
         \item[(ii)]
@@ -283,7 +284,7 @@ The rest of this section explores the spectrum of $S(E)$.
 \end{proof}
 \noindent An immediate corollary of this is that for any given length, a filter contains at most one element corresponding
 to a path of that length. Furthermore, if $\zeta$ is a filter, and $(\alpha, \alpha) \in \zeta$,
-we can take a prefix of alpha of length $0 \leq m < |\alpha|$ to produce a new unique element of length $m$ inside $\zeta$.
+we may take a $0 \leq m < |\alpha|$ length prefix of $\alpha$ to produce a new unique element of length $m$ inside $\zeta$.
 
 \begin{definition}
     If $x = x_1 x_2 x_3 ...$ is a sequence of edges in $E$, where for $i \in \mathbb{N}$, 
@@ -410,15 +411,15 @@ the main result found in the literature linking the tight spectrum to this field
         \item $x = (x^*)^*$
         \item $(xy)^* = y^*x^*$
         \item $(x + \lambda y)^* = x^* + \overline{\lambda} y^*$
-        \item $||xx^*|| = ||x||^2$ \quad called the \emph{C*-condition}
+        \item $\norm{xx^*} = \norm{x}^2$ \quad called the \emph{C*-condition}
     \end{itemize}
     We call $A$ a \emph{commutative C*-algebra} if $xy = yx \ \forall x$, $y \in A$.
 \end{definition}
 
 \begin{definition}
     Let $X$ be a locally compact Hausdorff space. We say a function $f: X \to \mathbb{C}$
-    \emph{vanishes at infinity} if $\forall \epsilon > 0$, $\exists$ a compact $K \subseteq X$
-    such that $|f(x)| < \epsilon \ \forall x \in X \setminus K$. This generalizes the notion of
+    \emph{vanishes at infinity} if $\forall \varepsilon > 0$, $\exists$ a compact $K \subseteq X$
+    such that $|f(x)| < \varepsilon \ \forall x \in X \setminus K$. This generalizes the notion of
     a function of a real variable approaching zero as one extends further along the real line. We define the set
     \begin{align*}
         C_0(X) &= \{f: X \to \mathbb{C}\text{: $f$ is continuous and $f$ vanishes at infinity}\}
@@ -428,7 +429,7 @@ the main result found in the literature linking the tight spectrum to this field
         &(f+g)(x) = f(x) + g(x) \\
         &(fg)(x) = f(x)g(x) \\
         &(f^*)(x) = \overline{f(x)} \\
-        &||f|| = sup_{x \in X} |f(x)|
+        &\norm{f}_\infty = \sup_{x \in X} |f(x)|
     \end{align*}
 \end{definition}
 
